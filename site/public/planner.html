@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TerraMind | Carbon Reduction Planner</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;700;900&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#00C26E",
+                        "on-primary": "#00391d",
+                        surface: "#0e150f",
+                        "on-surface": "#e1e3de",
+                        "surface-container": "#1a211a",
+                        "surface-container-highest": "#242b24",
+                        "on-surface-variant": "#c1c9be",
+                        "outline-variant": "#414941",
+                        "primary-container": "#00522e",
+                        "on-primary-container": "#7df6a8"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    fontFamily: {
+                        headline: ["Public Sans", "sans-serif"],
+                        display: ["Public Sans", "sans-serif"],
+                        body: ["Inter", "sans-serif"],
+                        label: ["Public Sans", "sans-serif"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #0e150f;
+            color: #e1e3de;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .font-headline { font-family: 'Public Sans', sans-serif; }
+        .glass-card {
+            background: rgba(26, 33, 26, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(65, 73, 65, 0.3);
+        }
+        .timeline-gradient {
+            background: linear-gradient(90deg, #00C26E 0%, #00C26E 40%, #414941 40%, #414941 100%);
+        }
+        .glow-green {
+            box-shadow: 0 0 20px rgba(0, 194, 110, 0.2);
+        }
+        .eco-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5c13.8 0 25 11.2 25 25S43.8 55 30 55 5 43.8 5 30 16.2 5 30 5zm0 5c-11 0-20 9-20 20s9 20 20 20 20-9 20-20-9-20-20-20z' fill='%2300c26e' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+    </style>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="eco-pattern min-h-screen selection:bg-primary/30 selection:text-primary">
+<!-- Universal TopNavBar -->
+<nav class="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] rounded-xl bg-surface-glass backdrop-blur-2xl border border-outline-glass shadow-md shadow-glow-primary/10 flex justify-between items-center px-6 py-3 max-w-container-max mx-auto z-50">
+    <div class="font-display-lg text-headline-md font-bold text-primary tracking-tight cursor-pointer" onclick="window.location.href='index.html'">TerraMind</div>
+    <div class="hidden lg:flex items-center space-x-6">
+        <a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" href="index.html">Home</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" href="dashboard.html">Dashboard</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" href="calculator.html">Calculator</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" href="aicoach.html">AI Coach</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" href="challenges.html">Challenges</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" href="community.html">Community</a>
+<a class="text-primary border-b-2 border-primary pb-1 font-bold font-label-md text-label-md" href="planner.html">Planner</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" href="simulator.html">Simulator</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" href="marketplace.html">Rewards</a>
+
+    </div>
+    <button class="bg-primary text-on-primary px-4 py-1.5 rounded-full font-label-md text-label-md scale-95 active:scale-90 transition-transform shadow-lg shadow-glow-primary hover:brightness-110" onclick="window.location.href='aicoach.html'">
+        Eco Coach
+    </button>
+</nav>
+<!-- TopNavBar -->
+
+<main class="max-w-7xl mx-auto px-6 pt-32 pb-12 space-y-20">
+<!-- Hero Section -->
+<section class="relative rounded-3xl overflow-hidden p-12 md:p-20 text-center space-y-6">
+
+<div class="relative z-10 max-w-3xl mx-auto space-y-6">
+<div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary font-label text-xs tracking-widest uppercase mb-4">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+                    Live Optimization Active
+                </div>
+<h1 class="text-5xl md:text-7xl font-headline font-black tracking-tight text-on-surface">
+                    Carbon Reduction <span class="text-primary">Planner</span>
+</h1>
+<p class="text-lg md:text-xl text-on-surface-variant font-body max-w-2xl mx-auto leading-relaxed">
+                    Your customized step-by-step roadmap to net-zero carbon impact. Engineering a greener future with precision data and actionable steps.
+                </p>
+</div>
+</section>
+<!-- Interactive Roadmap Timeline -->
+<section class="space-y-10">
+<div class="flex items-end justify-between px-4">
+<div class="space-y-2">
+<h2 class="text-2xl font-headline font-bold text-on-surface">Reduction Roadmap</h2>
+<p class="text-on-surface-variant text-sm">Path to achieving Net Zero by 2030</p>
+</div>
+<div class="text-right">
+<span class="text-primary text-3xl font-headline font-black tracking-tight">40%</span>
+<p class="text-on-surface-variant text-xs uppercase tracking-widest">Progress to next milestone</p>
+</div>
+</div>
+<div class="relative py-12 px-8 glass-card rounded-3xl">
+<div class="absolute top-1/2 left-0 w-full h-1 bg-surface-container-highest -translate-y-1/2 z-0 opacity-50"></div>
+<!-- Progress Line -->
+<div class="absolute top-1/2 left-0 w-[40%] h-1 bg-primary -translate-y-1/2 z-0 glow-green transition-all duration-1000"></div>
+<div class="relative z-10 flex justify-between items-start gap-4">
+<!-- Step 1 -->
+<div class="flex flex-col items-center text-center gap-4 w-1/5 group">
+<div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center ring-4 ring-primary/20 transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="space-y-1">
+<h4 class="font-headline font-bold text-sm text-on-surface">Initial Audit</h4>
+<p class="text-xs text-primary font-medium tracking-tight">8.5 tons base</p>
+</div>
+</div>
+<!-- Step 3 (Active) -->
+<div class="flex flex-col items-center text-center gap-4 w-1/5 group">
+<div class="relative">
+<div class="absolute -inset-2 bg-primary/20 rounded-full blur animate-pulse"></div>
+<div class="relative w-10 h-10 rounded-full bg-surface-container-highest text-primary border-2 border-primary flex items-center justify-center ring-4 ring-primary/10 transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined text-xl">solar_power</span>
+</div>
+</div>
+<div class="space-y-1">
+<h4 class="font-headline font-bold text-sm text-on-surface">Switching to Solar</h4>
+<p class="text-xs text-primary font-medium tracking-tight">Reduces 1.8 tons</p>
+<div class="w-16 h-1 bg-surface-container-highest rounded-full mx-auto mt-2 overflow-hidden">
+<div class="w-2/3 h-full bg-primary"></div>
+</div>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="flex flex-col items-center text-center gap-4 w-1/5 group opacity-50 hover:opacity-100 transition-opacity">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest text-on-surface-variant border-2 border-outline-variant flex items-center justify-center transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined text-xl">electric_car</span>
+</div>
+<div class="space-y-1">
+<h4 class="font-headline font-bold text-sm text-on-surface">Commute to EV</h4>
+<p class="text-xs text-on-surface-variant font-medium tracking-tight">Reduces 2.2 tons</p>
+</div>
+</div>
+<!-- Step 5 -->
+<div class="flex flex-col items-center text-center gap-4 w-1/5 group opacity-50 hover:opacity-100 transition-opacity">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest text-on-surface-variant border-2 border-outline-variant flex items-center justify-center transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined text-xl">restaurant</span>
+</div>
+<div class="space-y-1">
+<h4 class="font-headline font-bold text-sm text-on-surface">Dietary Optimization</h4>
+<p class="text-xs text-on-surface-variant font-medium tracking-tight">Reduces 1.2 tons</p>
+</div>
+</div>
+<!-- Step 6 -->
+<div class="flex flex-col items-center text-center gap-4 w-1/5 group opacity-50">
+<div class="w-12 h-12 rounded-full bg-primary/20 text-primary border-2 border-primary/40 border-dashed flex items-center justify-center transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined text-2xl">workspace_premium</span>
+</div>
+<div class="space-y-1">
+<h4 class="font-headline font-bold text-sm text-on-surface">Net Zero Achievement</h4>
+<p class="text-xs text-primary font-bold tracking-tight">Target: 1.5 tons/yr</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Recommended Action Items & Potential Savings -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Recommended Action Items List -->
+<div class="lg:col-span-2 space-y-6">
+<div class="flex justify-between items-center px-2">
+<h2 class="text-2xl font-headline font-bold text-on-surface">Priority Actions</h2>
+<button class="text-primary text-sm font-medium hover:underline">View All Tasks</button>
+</div>
+<div class="space-y-4">
+<!-- Item 1 -->
+<div class="glass-card p-6 rounded-2xl flex flex-col md:flex-row justify-between items-start md:items-center gap-6 hover:border-primary/40 transition-all group">
+<div class="flex gap-5">
+<div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0 group-hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-3xl">lightbulb</span>
+</div>
+<div class="space-y-2">
+<h3 class="text-lg font-headline font-bold text-on-surface">Upgrade all home lighting to LEDs</h3>
+<div class="flex gap-2">
+<span class="px-3 py-0.5 rounded-full bg-surface-container-highest text-primary text-[10px] font-bold uppercase tracking-wider">High impact</span>
+<span class="px-3 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant text-[10px] font-bold uppercase tracking-wider">Low cost</span>
+</div>
+</div>
+</div>
+<button class="w-full md:w-auto px-6 py-2.5 rounded-xl border border-primary text-primary font-headline font-bold text-sm hover:bg-primary hover:text-on-primary transition-all active:scale-95">
+                            Mark as Done
+                        </button>
+</div>
+<!-- Item 2 -->
+<div class="glass-card p-6 rounded-2xl flex flex-col md:flex-row justify-between items-start md:items-center gap-6 hover:border-primary/40 transition-all group">
+<div class="flex gap-5">
+<div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0 group-hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-3xl">flight</span>
+</div>
+<div class="space-y-2">
+<h3 class="text-lg font-headline font-bold text-on-surface">Reduce flight hours by 10%</h3>
+<div class="flex gap-2">
+<span class="px-3 py-0.5 rounded-full bg-surface-container-highest text-primary text-[10px] font-bold uppercase tracking-wider">Medium impact</span>
+<span class="px-3 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant text-[10px] font-bold uppercase tracking-wider">Zero cost</span>
+</div>
+</div>
+</div>
+<button class="w-full md:w-auto px-6 py-2.5 rounded-xl border border-primary text-primary font-headline font-bold text-sm hover:bg-primary hover:text-on-primary transition-all active:scale-95">
+                            Mark as Done
+                        </button>
+</div>
+<!-- Item 3 -->
+<div class="glass-card p-6 rounded-2xl flex flex-col md:flex-row justify-between items-start md:items-center gap-6 hover:border-primary/40 transition-all group">
+<div class="flex gap-5">
+<div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0 group-hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-3xl">compost</span>
+</div>
+<div class="space-y-2">
+<h3 class="text-lg font-headline font-bold text-on-surface">Add Composting to waste routing</h3>
+<div class="flex gap-2">
+<span class="px-3 py-0.5 rounded-full bg-surface-container-highest text-primary text-[10px] font-bold uppercase tracking-wider">Medium impact</span>
+<span class="px-3 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant text-[10px] font-bold uppercase tracking-wider">Low cost</span>
+</div>
+</div>
+</div>
+<button class="w-full md:w-auto px-6 py-2.5 rounded-xl border border-primary text-primary font-headline font-bold text-sm hover:bg-primary hover:text-on-primary transition-all active:scale-95">
+                            Mark as Done
+                        </button>
+</div>
+</div>
+</div>
+<!-- Potential Savings Section -->
+<div class="space-y-6">
+<h2 class="text-2xl font-headline font-bold text-on-surface px-2">Estimated Annual Savings</h2>
+<div class="space-y-4">
+<div class="relative overflow-hidden bg-primary-container text-on-primary-container p-8 rounded-3xl group">
+<div class="relative z-10 space-y-4">
+<div class="flex justify-between items-center">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">eco</span>
+<span class="text-xs font-black uppercase tracking-widest bg-on-primary-container/20 px-2 py-1 rounded">Projected</span>
+</div>
+<div>
+<p class="text-sm font-medium opacity-80">Estimated CO2 Saved</p>
+<h4 class="text-4xl font-headline font-black">5.2 Tons/Yr</h4>
+</div>
+</div>
+<div class="absolute -bottom-4 -right-4 w-32 h-32 bg-on-primary-container/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
+</div>
+<div class="relative overflow-hidden glass-card p-8 rounded-3xl group">
+<div class="relative z-10 space-y-4">
+<div class="flex justify-between items-center">
+<span class="material-symbols-outlined text-3xl text-primary">payments</span>
+<span class="text-xs font-black uppercase tracking-widest bg-primary/10 text-primary px-2 py-1 rounded">Economic ROI</span>
+</div>
+<div>
+<p class="text-sm font-medium text-on-surface-variant">Estimated Cost Savings</p>
+<h4 class="text-4xl font-headline font-black text-on-surface">$1,420/Yr</h4>
+</div>
+</div>
+<div class="absolute -top-12 -right-12 w-48 h-48 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-all duration-700"></div>
+</div>
+<!-- Additional Detail Card -->
+<div class="p-6 bg-surface-container-highest rounded-2xl border border-outline-variant/30">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-2 h-10 bg-primary rounded-full"></div>
+<p class="text-xs font-body italic text-on-surface-variant">
+                                "Switching to solar will offset your largest carbon category. You are currently on track to hit your targets 4 months early."
+                            </p>
+</div>
+<img alt="Ecological growth" class="w-full h-24 object-cover rounded-xl" data-alt="A macro photography shot of a tiny, vibrant green sprout emerging from dark, rich, moist soil. The lighting is soft and ethereal, filtering through a lush forest canopy, creating a bokeh effect in the background. The aesthetic is clean, professional, and represents sustainable growth and new beginnings in a dark, high-tech context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4Av4g5bU_UC6vJw0PjItqHaRo3MqbsV2aH4zkkgpkvi21E7bmDL3tnBYixBW4CGrsDON0IFXLUyXM2Jg61hEU6HmmciOBGWX68zD12OyFvXchfxUO4qWCTba285FrFQDgqH6bcMCMiWAKb0Nl0HxabNZJqG-KChMXh-iRkubQ2xO0Wd_oxYE6qxxw3PWjGAVTeUNCz_0V9DOau8aJWowiOOg5QBMqB61whhNvIKEwLjWXtrP3utUhek3RBVs3V0ekeRhkDzkqFpg"/>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="mt-20 border-t border-outline-variant dark:border-outline-variant bg-surface">
+<div class="w-full py-12 px-12 flex flex-col md:flex-row justify-between items-center gap-8 max-w-7xl mx-auto">
+<div class="space-y-4 text-center md:text-left">
+<span class="font-headline font-bold text-on-surface text-lg">TerraMind</span>
+<p class="font-body text-label-sm text-on-surface-variant max-w-xs">
+                    © 2024 TerraMind. Engineering a greener future. Empowering individuals and businesses to lead the net-zero revolution.
+                </p>
+</div>
+<div class="flex flex-wrap justify-center gap-8 font-body text-label-sm">
+<a class="text-on-surface-variant hover:text-primary underline transition-all" href="index.html">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary underline transition-all" href="index.html">Terms of Service</a>
+<a class="text-on-surface-variant hover:text-primary underline transition-all" href="index.html">Carbon Methodology</a>
+<a class="text-on-surface-variant hover:text-primary underline transition-all" href="index.html">API Docs</a>
+</div>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:border-primary hover:text-primary transition-all" href="index.html">
+<span class="material-symbols-outlined text-sm">language</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:border-primary hover:text-primary transition-all" href="index.html">
+<span class="material-symbols-outlined text-sm">mail</span>
+</a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for cards
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        // Simple 'Done' toggle simulation
+        document.querySelectorAll('button').forEach(btn => {
+            if (btn.innerText === 'Mark as Done') {
+                btn.addEventListener('click', function() {
+                    this.innerText = 'Completed';
+                    this.classList.remove('border-primary', 'text-primary');
+                    this.classList.add('bg-primary/20', 'text-primary', 'border-transparent');
+                    this.disabled = true;
+                });
+            }
+        });
+    </script>
+</body></html>

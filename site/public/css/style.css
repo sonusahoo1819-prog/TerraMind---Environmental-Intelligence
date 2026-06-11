@@ -1,0 +1,143 @@
+/* TerraMind Global Stylesheet */
+:root {
+    --primary: #00C26E;
+    --primary-glow: rgba(0, 194, 110, 0.3);
+    --secondary: #4DAFFF;
+    --secondary-glow: rgba(77, 175, 255, 0.2);
+    --accent: #B7FF4A;
+    --accent-glow: rgba(183, 255, 74, 0.25);
+    --yellow: #FFD54A;
+    --yellow-glow: rgba(255, 213, 74, 0.25);
+    
+    --bg-dark: #070D19;
+    --bg-light: #0B1F2D;
+    
+    --glass-bg: rgba(13, 23, 42, 0.55);
+    --glass-border: rgba(255, 255, 255, 0.08);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-dark);
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+}
+
+/* Base Body settings */
+body {
+    background-color: var(--bg-dark);
+    background-image: radial-gradient(circle at 80% 20%, var(--bg-light) 0%, var(--bg-dark) 100%);
+    color: #dce5db;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Glassmorphism Panel */
+.glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Premium Glow Effects */
+.glow-hover:hover {
+    box-shadow: 0 0 25px var(--primary-glow);
+    border-color: rgba(0, 194, 110, 0.4);
+    transform: translateY(-2px);
+}
+
+.glow-hover-blue:hover {
+    box-shadow: 0 0 25px var(--secondary-glow);
+    border-color: rgba(77, 175, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+.glow-hover-lime:hover {
+    box-shadow: 0 0 25px var(--accent-glow);
+    border-color: rgba(183, 255, 74, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Floating Animations */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes pulse-slow {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.85; transform: scale(0.98); }
+}
+
+.animate-pulse-slow {
+    animation: pulse-slow 4s infinite ease-in-out;
+}
+
+/* 3D Container Shadows */
+.shadow-3d {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Card expansion / detail transitions */
+.transition-card {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Dynamic background glows */
+.bg-glow-emerald {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 194, 110, 0.08) 0%, transparent 70%);
+    filter: blur(50px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.bg-glow-blue {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(77, 175, 255, 0.06) 0%, transparent 70%);
+    filter: blur(60px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Neumorphic Input fields */
+.neumorphic-input {
+    background: rgba(8, 14, 26, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6),
+                0 1px 0 rgba(255, 255, 255, 0.05);
+    transition: all 0.2s ease;
+}
+
+.neumorphic-input:focus {
+    border-color: var(--primary);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6),
+                0 0 10px rgba(0, 194, 110, 0.2);
+    outline: none;
+}

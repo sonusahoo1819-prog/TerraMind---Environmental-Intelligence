@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TerraMind | AI Sustainability Coach</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Outfit:wght@600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed-variant": "#00522b",
+                        "secondary": "#98cbff",
+                        "surface-bright": "#333b34",
+                        "surface-glass": "rgba(26, 33, 27, 0.4)",
+                        "on-tertiary": "#213600",
+                        "background-deep": "#0e150f",
+                        "glow-primary": "rgba(66, 225, 137, 0.3)",
+                        "primary-container": "#42e189",
+                        "on-tertiary-container": "#3a5c00",
+                        "on-primary-container": "#006033",
+                        "surface-tint": "#42e189",
+                        "surface-container-high": "#242c25",
+                        "on-primary": "#00391c",
+                        "outline": "#869587",
+                        "primary-fixed": "#65fea3",
+                        "tertiary-container": "#95da23",
+                        "background-radial-glow": "#16261b",
+                        "on-tertiary-fixed": "#111f00",
+                        "on-background": "#dce5db",
+                        "secondary-fixed-dim": "#98cbff",
+                        "tertiary-fixed-dim": "#95da23",
+                        "inverse-on-surface": "#2a322c",
+                        "outline-variant": "#3c4a3f",
+                        "inverse-surface": "#dce5db",
+                        "secondary-container": "#034a77",
+                        "on-primary-fixed": "#00210e",
+                        "glow-tertiary": "rgba(149, 218, 35, 0.15)",
+                        "primary-fixed-dim": "#42e189",
+                        "on-error-container": "#ffdad6",
+                        "surface-container": "#1a211b",
+                        "on-tertiary-fixed-variant": "#324f00",
+                        "on-error": "#690005",
+                        "surface-container-lowest": "#08100a",
+                        "surface-container-highest": "#2f3730",
+                        "surface-container-low": "#161d17",
+                        "secondary-fixed": "#cfe5ff",
+                        "error": "#ffb4ab",
+                        "primary": "#65fea3",
+                        "on-secondary-fixed": "#001d33",
+                        "on-secondary-container": "#87baed",
+                        "on-secondary": "#003354",
+                        "tertiary": "#b0f743",
+                        "on-surface-variant": "#bbcbbc",
+                        "surface-variant": "#2f3730",
+                        "surface": "#0e150f",
+                        "inverse-primary": "#006d3b",
+                        "tertiary-fixed": "#b0f743",
+                        "on-surface": "#dce5db",
+                        "on-secondary-fixed-variant": "#034a77",
+                        "error-container": "#93000a",
+                        "outline-glass": "rgba(255, 255, 255, 0.1)",
+                        "surface-dim": "#0e150f",
+                        "background": "#0e150f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "xl": "64px",
+                        "lg": "40px",
+                        "sm": "16px",
+                        "md": "24px",
+                        "base": "4px",
+                        "container-max": "1440px",
+                        "xs": "8px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Outfit"],
+                        "display-lg": ["Outfit"],
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Outfit"],
+                        "display-lg-mobile": ["Outfit"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(26, 33, 27, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glow-primary-hover:hover {
+            box-shadow: 0 0 20px rgba(66, 225, 137, 0.2);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.02);
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(66, 225, 137, 0.3);
+            border-radius: 10px;
+        }
+        @keyframes pulse-subtle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.85; transform: scale(1.02); }
+        }
+        .animate-pulse-subtle {
+            animation: pulse-subtle 4s infinite ease-in-out;
+        }
+    </style>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden min-h-screen">
+<!-- Universal TopNavBar -->
+<nav class="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] rounded-xl bg-surface-glass backdrop-blur-2xl border border-outline-glass shadow-md shadow-glow-primary/10 flex justify-between items-center px-6 py-3 max-w-container-max mx-auto z-50">
+    <div class="font-display-lg text-headline-md font-bold text-primary tracking-tight cursor-pointer" onclick="window.location.href='index.html'">TerraMind</div>
+    <div class="hidden lg:flex items-center space-x-6">
+        <a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" href="index.html">Home</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" href="dashboard.html">Dashboard</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" href="calculator.html">Calculator</a>
+<a class="text-primary border-b-2 border-primary pb-1 font-bold font-label-md text-label-md" href="aicoach.html">AI Coach</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" href="challenges.html">Challenges</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" href="community.html">Community</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" href="planner.html">Planner</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" href="simulator.html">Simulator</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" href="marketplace.html">Rewards</a>
+
+    </div>
+    <button class="bg-primary text-on-primary px-4 py-1.5 rounded-full font-label-md text-label-md scale-95 active:scale-90 transition-transform shadow-lg shadow-glow-primary hover:brightness-110" onclick="window.location.href='aicoach.html'">
+        Eco Coach
+    </button>
+</nav>
+<!-- TopNavBar -->
+
+<!-- Background Shader -->
+<div class="fixed inset-0 -z-10 bg-background">
+
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-background-deep to-background-deep"></div>
+</div>
+<!-- Main Content -->
+<main class="max-w-container-max mx-auto px-gutter pt-32 pb-xl grid grid-cols-1 lg:grid-cols-12 gap-8 min-h-[calc(100vh-80px)]">
+<!-- Left Column: Daily Intelligence -->
+<div class="lg:col-span-4 flex flex-col gap-8">
+<!-- Daily Eco-Tip Card -->
+<section class="glass-panel p-md rounded-xl relative overflow-hidden group">
+<div class="absolute -top-12 -right-12 w-32 h-32 bg-primary/20 rounded-full blur-3xl group-hover:bg-primary/30 transition-all duration-700"></div>
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center border border-primary/20">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary">Daily Eco-Tip</h2>
+</div>
+<p class="text-body-lg text-on-surface mb-4 leading-relaxed">Save water during showers today. Potential Co2 savings: <span class="text-primary font-bold">0.8kg</span>.</p>
+<button class="w-full py-3 rounded-lg bg-primary/5 border border-primary/20 text-primary font-label-md hover:bg-primary/10 transition-all duration-300 active:scale-95">Commit to Goal</button>
+</section>
+<!-- Goal-Setting Panel -->
+<section class="glass-panel p-md rounded-xl flex-1">
+<div class="flex items-center justify-between mb-6">
+<h2 class="font-headline-md text-headline-md text-on-surface">Active Goals</h2>
+<span class="text-label-sm text-primary bg-primary/10 px-2 py-1 rounded">2 Active</span>
+</div>
+<div class="space-y-6">
+<!-- Goal 1 -->
+<div class="space-y-3">
+<div class="flex justify-between items-end">
+<div>
+<h3 class="text-body-md font-semibold text-on-surface">Install LED bulbs</h3>
+<p class="text-label-sm text-on-surface-variant">4 of 6 units replaced</p>
+</div>
+<span class="text-label-md text-primary font-bold">66%</span>
+</div>
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden border border-outline-glass">
+<div class="h-full bg-primary shadow-[0_0_8px_rgba(66,225,137,0.5)] transition-all duration-1000" style="width: 66%"></div>
+</div>
+</div>
+<!-- Goal 2 -->
+<div class="space-y-3">
+<div class="flex justify-between items-end">
+<div>
+<h3 class="text-body-md font-semibold text-on-surface">Carpool 3 times a week</h3>
+<p class="text-label-sm text-on-surface-variant">2 of 3 sessions logged</p>
+</div>
+<span class="text-label-md text-primary font-bold">66%</span>
+</div>
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden border border-outline-glass">
+<div class="h-full bg-primary shadow-[0_0_8px_rgba(66,225,137,0.5)] transition-all duration-1000" style="width: 66%"></div>
+</div>
+</div>
+</div>
+<button class="mt-8 flex items-center gap-2 text-primary font-label-md group">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">add_circle</span>
+                    Create New Objective
+                </button>
+</section>
+<!-- Impact Summary -->
+<div class="glass-panel p-md rounded-xl border-primary/20 bg-primary/5">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">eco</span>
+<div>
+<p class="text-label-sm text-on-surface-variant uppercase tracking-wider">Weekly Impact</p>
+<p class="text-headline-md font-headline-md text-primary">-12.4kg <span class="text-label-md text-on-surface-variant font-normal">CO2e</span></p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: AI Chat Interface -->
+<div class="lg:col-span-8 flex flex-col glass-panel rounded-xl overflow-hidden border-outline-glass shadow-xl h-[800px]">
+<!-- Chat Header -->
+<header class="p-md bg-surface-container-high/50 backdrop-blur-md border-b border-outline-glass flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="relative">
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary shadow-[0_0_15px_rgba(66,225,137,0.3)]">
+<img alt="AI Coach Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvuaixzN2sG46zwPXw6hQh-DlM21xfYML_dehSZKFHaJ4r4tHFNCW0wS8QwAbpiCcGQIlXLQO4y4o0MadHn-WrQa6o1UicGZBNeogJzdmXLug-yUfXXuX5q3WXO5rssLCNcUTGY7he_Zj_0FrevJLEBKKeXRjLDxTVHkscwbS0pAbC0ogyPLC3KIiLXt5jw26QsKovM_Tt7I0akl8eSnTW1OzKS_-L80PqKb-ftKYefN2ohO6LEbpk-LLZQfAOnRWdgm3jeb6n2ng"/>
+</div>
+<div class="absolute bottom-0 right-0 w-3 h-3 bg-primary rounded-full border-2 border-surface-container-high"></div>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">EcoCoach AI</h3>
+<p class="text-label-sm text-primary">Online • Visionary Guidance</p>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="p-2 rounded-lg hover:bg-surface-variant transition-colors material-symbols-outlined text-on-surface-variant">history</button>
+<button class="p-2 rounded-lg hover:bg-surface-variant transition-colors material-symbols-outlined text-on-surface-variant">more_vert</button>
+</div>
+</header>
+<!-- Chat History -->
+<div class="flex-1 overflow-y-auto p-md space-y-6 custom-scrollbar bg-surface-container-lowest/20">
+<!-- AI Message -->
+<div class="flex flex-col items-start gap-2 max-w-[85%]">
+<div class="p-4 rounded-2xl rounded-tl-none bg-surface-glass border border-primary/30 shadow-[0_0_15px_rgba(66,225,137,0.1)]">
+<p class="text-body-md text-on-surface leading-relaxed">
+                            Hello! I've been analyzing your recent consumption data. Your current carbon footprint is 15% lower than the regional average. Excellent work! 
+                        </p>
+<p class="text-body-md text-on-surface mt-2 leading-relaxed">
+                            Would you like to explore how we can optimize your upcoming flight travel for minimum environmental impact?
+                        </p>
+</div>
+<span class="text-[10px] text-on-surface-variant ml-1">COACH TERRA • 09:41 AM</span>
+</div>
+<!-- User Message -->
+<div class="flex flex-col items-end gap-2 ml-auto max-w-[85%]">
+<div class="p-4 rounded-2xl rounded-tr-none bg-primary/10 border border-primary/20">
+<p class="text-body-md text-on-surface leading-relaxed">
+                            That sounds great. I'm flying from London to Tokyo next month. What are my best offsetting options?
+                        </p>
+</div>
+<span class="text-[10px] text-on-surface-variant mr-1">YOU • 09:42 AM</span>
+</div>
+<!-- AI Message with Chart/Metric -->
+<div class="flex flex-col items-start gap-2 max-w-[85%]">
+<div class="p-4 rounded-2xl rounded-tl-none bg-surface-glass border border-primary/30 shadow-[0_0_15px_rgba(66,225,137,0.1)]">
+<p class="text-body-md text-on-surface leading-relaxed mb-4">
+                            For a long-haul flight like London to Tokyo (approx. 9,500km), your estimated emissions are 1.2 tonnes of CO2. 
+                        </p>
+<div class="bg-surface-container-high rounded-lg p-3 border border-outline-glass mb-4">
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-sm font-bold text-primary uppercase">Recommended Action</span>
+<span class="text-label-sm text-on-surface-variant">Project: Amazon Reforestation</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-md bg-background-deep flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl">park</span>
+</div>
+<div class="flex-1">
+<p class="text-label-md text-on-surface">Plant 24 native trees</p>
+<p class="text-label-sm text-on-surface-variant">Cost: $32.00 • 100% Offset</p>
+</div>
+</div>
+</div>
+<p class="text-body-md text-on-surface">I can integrate this directly into your Sustainability Planner if you'd like?</p>
+</div>
+<span class="text-[10px] text-on-surface-variant ml-1">COACH TERRA • 09:43 AM</span>
+</div>
+</div>
+<!-- Input Area -->
+<footer class="p-md bg-surface-container-high/50 backdrop-blur-md border-t border-outline-glass">
+<!-- Quick Actions -->
+<div class="flex flex-wrap gap-2 mb-4 overflow-x-auto pb-1 no-scrollbar">
+<button class="whitespace-nowrap px-4 py-1.5 rounded-full glass-panel text-label-md text-on-surface-variant hover:text-primary hover:border-primary/40 transition-all">Suggest an easy eco-tip</button>
+<button class="whitespace-nowrap px-4 py-1.5 rounded-full glass-panel text-label-md text-on-surface-variant hover:text-primary hover:border-primary/40 transition-all">How do I offset my flight?</button>
+<button class="whitespace-nowrap px-4 py-1.5 rounded-full glass-panel text-label-md text-on-surface-variant hover:text-primary hover:border-primary/40 transition-all">Review my planner</button>
+</div>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest/50 border border-outline-glass rounded-xl px-6 py-4 pr-32 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all text-body-md placeholder:text-on-surface-variant/50" placeholder="Type your message to Coach Terra..." type="text"/>
+<div class="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-2">
+<button class="p-2 rounded-lg hover:bg-primary/10 text-on-surface-variant transition-colors material-symbols-outlined">attach_file</button>
+<button class="p-2 rounded-lg hover:bg-primary/10 text-on-surface-variant transition-colors material-symbols-outlined">mic</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary text-on-primary shadow-lg shadow-primary/20 hover:scale-105 active:scale-95 transition-all">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</footer>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-xl bg-background-deep border-t border-outline-variant">
+<div class="max-w-container-max mx-auto px-xl flex flex-col md:flex-row justify-between items-center gap-base">
+<div class="flex flex-col items-center md:items-start gap-2">
+<span class="font-headline-md text-headline-md text-primary">TerraMind</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">© 2024 TerraMind Intelligence. Grounded in Data.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="index.html">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="index.html">Terms of Service</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="index.html">Sustainability Report</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="index.html">Contact Support</a>
+</div>
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full border border-outline-glass flex items-center justify-center opacity-80 hover:opacity-100 hover:border-primary transition-all cursor-pointer">
+<img alt="Social Icon" class="w-5 h-5 opacity-70" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyAUgdnnbHD-Ru-UznH_Er1uEnpvb8d3kUiz3BAK2-6453Fz5FzpkJauspJOtV6RSenJMKuK94LyArqMHGe95LKYhK6C6NtYzt-A6812J81npTeHFJ9cWTr5gRthHF_hsJFdHbaOzsiw-lGN3u_mAHGJk8_hAG1g1PS4Z45F-E5yStltBOKjQLOwXdXIbs_BnqIoZTtFG-Ww5OvIhpGKfVSB4DyksM3_Oc5iZ35AeYj9DNN5tjTwB7ifiUL8I4GwUf1r9g4688peA"/>
+</div>
+<div class="w-10 h-10 rounded-full border border-outline-glass flex items-center justify-center opacity-80 hover:opacity-100 hover:border-primary transition-all cursor-pointer">
+<img alt="Social Icon" class="w-5 h-5 opacity-70" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcLazZVbw5XCoToSXVHnC7J53k0mPOa7cDYQmxhuBlV2ky1Af1Mu_dsAEnAGXmf8Cxb8vljc4LuAKKUud0Zuc4XXwRrzvwj2JeYPt6GKAM7231yT9jGzQs8_vVUVpqRVSoyOmJyM4hxA6GhUmlZjoyXWAFXY2mOc4aU0Est6XRlVJmXp1jtXI2IZ0a9NhdCqVp38up1prVh2BN6l-a5lp33fw-XF2G47Rk9qKuTUXcHNmzcHrTUyMA4FcwbSnicyZkO3yVLkPcgeo"/>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interactions and chat scroll behavior
+        const chatContainer = document.querySelector('.overflow-y-auto');
+        if (chatContainer) {
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+
+        // Add a subtle entrance animation to the cards
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.glass-panel');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 0.6s cubic-bezier(0.22, 1, 0.36, 1)';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100 * index);
+            });
+        });
+    </script>
+    <script src="js/aicoach.js"></script>
+</body></html>

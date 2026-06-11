@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TerraMind Rewards Marketplace</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;700;900&amp;family=Inter:wght@300;400;500;600&amp;family=Outfit:wght@300;400;600;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#00C26E",
+              "on-primary": "#FFFFFF",
+              "primary-container": "#00391D",
+              "on-primary-container": "#B6F2AF",
+              surface: "#0A0A0A",
+              "on-surface": "#E2E2E2",
+              "surface-container-lowest": "#050505",
+              "surface-container-low": "#1C1B1F",
+              "surface-container-high": "#2B2930",
+              "on-surface-variant": "#C4C7C5",
+              "outline-variant": "#444746",
+            },
+            borderRadius: {
+              "DEFAULT": "12px",
+              "lg": "16px",
+              "xl": "24px",
+              "full": "9999px"
+            },
+            fontFamily: {
+              headline: ["Outfit", "Public Sans", "sans-serif"],
+              display: ["Outfit", "Public Sans", "sans-serif"],
+              body: ["Inter", "sans-serif"],
+              label: ["Public Sans", "sans-serif"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      body {
+        background-color: #050505;
+        color: #E2E2E2;
+        font-family: 'Inter', sans-serif;
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .glow-green {
+        box-shadow: 0 0 40px -10px rgba(0, 194, 110, 0.3);
+      }
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .font-headline { font-family: 'Outfit', sans-serif; }
+    </style>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="min-h-screen flex flex-col selection:bg-primary selection:text-black">
+<!-- Universal TopNavBar -->
+<nav class="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] rounded-xl bg-surface-glass backdrop-blur-2xl border border-outline-glass shadow-md shadow-glow-primary/10 flex justify-between items-center px-6 py-3 max-w-container-max mx-auto z-50">
+    <div class="font-display-lg text-headline-md font-bold text-primary tracking-tight cursor-pointer" onclick="window.location.href='index.html'">TerraMind</div>
+    <div class="hidden lg:flex items-center space-x-6">
+        <a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" href="index.html">Home</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" href="dashboard.html">Dashboard</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" href="calculator.html">Calculator</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" href="aicoach.html">AI Coach</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" href="challenges.html">Challenges</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" href="community.html">Community</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" href="planner.html">Planner</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" href="simulator.html">Simulator</a>
+<a class="text-primary border-b-2 border-primary pb-1 font-bold font-label-md text-label-md" href="marketplace.html">Rewards</a>
+
+    </div>
+    <button class="bg-primary text-on-primary px-4 py-1.5 rounded-full font-label-md text-label-md scale-95 active:scale-90 transition-transform shadow-lg shadow-glow-primary hover:brightness-110" onclick="window.location.href='aicoach.html'">
+        Eco Coach
+    </button>
+</nav>
+<!-- TopNavBar -->
+
+<main class="pt-32 pb-16 px-6 md:px-12 max-w-7xl mx-auto w-full flex-grow">
+<!-- User Credits Panel -->
+<section class="relative mb-16">
+<div class="absolute -top-24 -left-24 w-64 h-64 bg-primary/10 rounded-full blur-[100px]"></div>
+<div class="glass-card glow-green p-8 md:p-12 rounded-xl flex flex-col md:flex-row justify-between items-center gap-8 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-5">
+<span class="material-symbols-outlined text-[120px]" style="font-variation-settings: 'FILL' 1;">eco</span>
+</div>
+<div class="text-center md:text-left z-10">
+<h1 class="text-sm uppercase tracking-[0.2em] text-primary font-bold mb-2">Marketplace Balance</h1>
+<p class="text-4xl md:text-5xl font-black font-headline text-white">Reward Portal</p>
+</div>
+<div class="flex flex-col sm:flex-row gap-6 md:gap-12 z-10">
+<div class="flex flex-col items-center md:items-start">
+<span class="text-on-surface-variant text-xs uppercase tracking-widest mb-1">Available TerraCredits</span>
+<div class="flex items-baseline gap-2">
+<span class="text-4xl font-black text-primary font-headline">4,500</span>
+<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">generating_tokens</span>
+</div>
+</div>
+<div class="w-px h-12 bg-outline-variant hidden sm:block"></div>
+<div class="flex flex-col items-center md:items-start">
+<span class="text-on-surface-variant text-xs uppercase tracking-widest mb-1">Total Tree Credits</span>
+<div class="flex items-baseline gap-2">
+<span class="text-4xl font-black text-white font-headline">8</span>
+<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">park</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Voucher Card Grid -->
+<section class="mb-16">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="text-2xl font-bold font-headline mb-1">Redeem Rewards</h2>
+<p class="text-on-surface-variant text-sm">Turn your positive impact into tangible change.</p>
+</div>
+<button class="flex items-center gap-2 text-primary font-semibold hover:underline text-sm">
+                    View All <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Item 1 -->
+<div class="group bg-surface-container-low rounded-lg overflow-hidden border border-outline-variant hover:border-primary/50 transition-all duration-300 flex flex-col">
+<div class="h-48 overflow-hidden relative">
+<img alt="Plant a Tree" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A lush and dense tropical rainforest canopy seen from a low angle, with vibrant green ferns and mossy tree trunks reaching towards a soft misty sky. The lighting is diffused and atmospheric, evoking a sense of deep nature and conservation. The visual style is crisp and modern, fitting a high-end environmental sustainability platform with emerald green tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQi8ZyYsXRnNlpNDGCCIl-dvGbpwO0VFtfqoS7lrw8Nu6a12vgz9ivfNlH7_pPO5xlxrMpGBeSmbFxRJ8J_PcwbALcXhol3Q_rzxJTrtYS3YQB92IM8flNOXJQ4Jgx9EVGr5iyrjVJgrjH6rf30rJxPtxQcgjmOJ7Ji8QY4N8b4mxrKk2c9gayW6YjgVFQ7P-Fq9IMfKS1SjQcC7gx0gHjfFw1H_qt1FhtbsopjFWGZ0cpFK4Mw5uSYUedvT5EVJweInZQJUlQCDA"/>
+<div class="absolute top-3 right-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-primary">
+                            500 CR
+                        </div>
+</div>
+<div class="p-5 flex-grow flex flex-col">
+<h3 class="font-headline font-bold text-lg mb-2">Plant a Tree in the Amazon</h3>
+<p class="text-on-surface-variant text-sm mb-6 line-clamp-2">Contribution to reforestation efforts in critical biosphere regions.</p>
+<button class="mt-auto w-full bg-primary text-black font-bold py-3 rounded-DEFAULT hover:opacity-90 active:scale-95 transition-all text-sm">Redeem Now</button>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="group bg-surface-container-low rounded-lg overflow-hidden border border-outline-variant hover:border-primary/50 transition-all duration-300 flex flex-col">
+<div class="h-48 overflow-hidden relative">
+<img alt="Bamboo Kitchen Set" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A minimalist display of sustainable bamboo kitchen utensils and bowls arranged on a clean stone countertop. The aesthetic is extremely modern and high-end, featuring soft natural lighting and a neutral color palette with subtle wood textures. The scene is calm and sophisticated, emphasizing eco-friendly luxury and clean design principles for a premium marketplace." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcKWPCeS1RpjUFnuxDcmBUTELcDBsfI0gC7hKxlA8OSOAQUVfi4Zjvrm2MkXtrZSz80ONwX_qn280YV9AcAxO8Uyy5EpS7cM4Zd54cEavA7_dKwEc_6aN7TGjovQfcHcKLTieI0_FssZ6TYgi1pa3W8hNqmMyRFmWXpP7wMH3O6HhHj6FNBk5tQlQtrI4MUTDWg6ehdGjeHlZxGoUl2crLUGzLR3vcATMXQJKr0JFyLvHf14PxIHQVbeNFht_ZB1pJj9rgSoYw-Vo"/>
+<div class="absolute top-3 right-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-primary">
+                            1,200 CR
+                        </div>
+</div>
+<div class="p-5 flex-grow flex flex-col">
+<h3 class="font-headline font-bold text-lg mb-2">Sustainable Bamboo Kitchen Set</h3>
+<p class="text-on-surface-variant text-sm mb-6 line-clamp-2">A 6-piece eco-friendly set crafted from organic Moso bamboo.</p>
+<button class="mt-auto w-full bg-surface-container-high text-white font-bold py-3 rounded-DEFAULT hover:bg-primary hover:text-black active:scale-95 transition-all text-sm">Redeem Now</button>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="group bg-surface-container-low rounded-lg overflow-hidden border border-outline-variant hover:border-primary/50 transition-all duration-300 flex flex-col">
+<div class="h-48 overflow-hidden relative">
+<img alt="Ocean Donation" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Crystal clear turquoise ocean waves gently rolling onto a pristine beach under a bright sunny sky. The water is transparent and luminous, symbolizing cleanliness and ocean preservation. The photography style is high-resolution with a vibrant, refreshing color palette that emphasizes clarity and environmental purity in a premium digital setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuATMRPF0_lU8yrmQlBlYw5p8e2tevlT90X1RJv-8QJSd30-4qC6JnBe2VoWdSCeKbcHN55bdxLuxvqD2s_sygntZPHpfemBwYmQiXbb3TgY0b6P6OMn0Qlk_6rzqt6_YJ8dtS7nhCgm8mrQzE5Ud_1juUG9qZ_aHxN7zvVjogF6J2GGW8-UdZrkf6fauBQRkNJmyGfwLQtt2RXMHKxBJXhQaADpW_M_xgYxLJhFnkw3Kc5jRkRiRNoOv4G1Ia-AqB3H6LLEj-S-AD0"/>
+<div class="absolute top-3 right-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-primary">
+                            800 CR
+                        </div>
+</div>
+<div class="p-5 flex-grow flex flex-col">
+<h3 class="font-headline font-bold text-lg mb-2">$10 Donation to Clean Ocean NGO</h3>
+<p class="text-on-surface-variant text-sm mb-6 line-clamp-2">Directly fund the removal of 5lbs of plastic from our coastal waters.</p>
+<button class="mt-auto w-full bg-surface-container-high text-white font-bold py-3 rounded-DEFAULT hover:bg-primary hover:text-black active:scale-95 transition-all text-sm">Redeem Now</button>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="group bg-surface-container-low rounded-lg overflow-hidden border border-outline-variant hover:border-primary/50 transition-all duration-300 flex flex-col">
+<div class="h-48 overflow-hidden relative">
+<img alt="Carbon Offset" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="An abstract digital visualization of green energy flow, featuring glowing light trails and neural-network-like patterns in a deep dark space. The aesthetic is futuristic and high-tech, using a palette of electric green and deep charcoal. The mood is powerful and visionary, representing the cutting-edge technology behind carbon offset and sustainable innovation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbjwBpIk_DivpZLXw4ASmFyMyW6f8x-4LUWpv8UwMg_5VCNEnDq0bFKPb0z0ob6IFiXFjZAZGfuYQFRdL6Tp6mWL3Mti3ydY7nJ-BsoiVal57v-Q28eZZ9Ke29RKwgg5ZOW7y9IZBom5Io-kcZxoE2KO949Yulhzo8m-Ef1OkMdTu-MUaqF3OrmXRQFfTXrh5jzkqDyTB_EPk3utFhYPwmnP8StFxUfCId1rMMLVN_EIASIxn3cLVoJz2O4Hh6u1hnCGTbuDBM6fk"/>
+<div class="absolute top-3 right-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-primary">
+                            1,500 CR
+                        </div>
+</div>
+<div class="p-5 flex-grow flex flex-col">
+<h3 class="font-headline font-bold text-lg mb-2">Official Carbon Offset Certificate</h3>
+<p class="text-on-surface-variant text-sm mb-6 line-clamp-2">Offset 1 metric ton of CO2 emissions through verified climate projects.</p>
+<button class="mt-auto w-full bg-surface-container-high text-white font-bold py-3 rounded-DEFAULT hover:bg-primary hover:text-black active:scale-95 transition-all text-sm">Redeem Now</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Redemptions History -->
+<section>
+<h2 class="text-2xl font-bold font-headline mb-6">Recent Redemptions</h2>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant bg-surface-container-low">
+<th class="px-6 py-4 text-xs uppercase tracking-widest text-on-surface-variant font-bold">Reward Item</th>
+<th class="px-6 py-4 text-xs uppercase tracking-widest text-on-surface-variant font-bold">Date</th>
+<th class="px-6 py-4 text-xs uppercase tracking-widest text-on-surface-variant font-bold">Credits</th>
+<th class="px-6 py-4 text-xs uppercase tracking-widest text-on-surface-variant font-bold">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/50">
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary/20 transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">wb_sunny</span>
+</div>
+<span class="font-semibold text-white">Solar Lamp Set</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-on-surface-variant">Nov 12, 2024</td>
+<td class="px-6 py-4 text-sm font-bold text-primary">2,200</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 py-1 px-3 rounded-full bg-primary/20 text-primary text-xs font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span> Shipped
+                                </span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary/20 transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">confirmation_number</span>
+</div>
+<span class="font-semibold text-white">National Park Pass</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-on-surface-variant">Oct 28, 2024</td>
+<td class="px-6 py-4 text-sm font-bold text-primary">850</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 py-1 px-3 rounded-full bg-blue-500/20 text-blue-400 text-xs font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span> Completed
+                                </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-auto border-t border-outline-variant bg-surface-container-lowest dark:bg-surface-container-lowest flex flex-col md:flex-row justify-between items-center py-8 px-6 md:px-12 gap-4">
+<div class="flex flex-col items-center md:items-start gap-1">
+<div class="text-lg font-bold text-on-surface font-headline">TerraMind</div>
+<p class="font-body text-label-sm text-on-surface-variant opacity-80">© 2024 TerraMind. Data attributed to Global Sustainability Index.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="font-body text-label-sm text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100" href="index.html">Privacy Policy</a>
+<a class="font-body text-label-sm text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100" href="index.html">Terms of Service</a>
+<a class="font-body text-label-sm text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100" href="index.html">Sustainability Report</a>
+<a class="font-body text-label-sm text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100" href="index.html">Contact</a>
+</div>
+</footer>
+<script>
+        // Simple micro-interaction for cards
+        document.querySelectorAll('.group').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-4px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body></html>

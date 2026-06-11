@@ -1,0 +1,9 @@
+# Secret credentials (essential to keep private)
+.env
+
+# Python compilation files
+__pycache__/
+*.pyc
+
+# Local design system config folder
+.stitch/

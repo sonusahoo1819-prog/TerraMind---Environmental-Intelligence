@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TerraMind | Community Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #0A0A0A;
+            color: #e5e2e1;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(26, 26, 26, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            border-color: rgba(101, 254, 163, 0.4);
+            box-shadow: 0 0 20px rgba(101, 254, 163, 0.1);
+            transform: translateY(-2px);
+        }
+        .primary-glow {
+            box-shadow: 0 0 15px rgba(101, 254, 163, 0.3);
+        }
+        .primary-glow:hover {
+            box-shadow: 0 0 25px rgba(101, 254, 163, 0.5);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary": "#313030",
+                    "secondary-container": "#474746",
+                    "secondary": "#c8c6c5",
+                    "outline-variant": "#3c4a3f",
+                    "error-container": "#93000a",
+                    "surface-container-highest": "#353534",
+                    "secondary-fixed-dim": "#c8c6c5",
+                    "secondary-fixed": "#e5e2e1",
+                    "surface-dim": "#131313",
+                    "on-tertiary": "#003731",
+                    "tertiary-container": "#62fae3",
+                    "on-primary-fixed": "#00210e",
+                    "inverse-on-surface": "#313030",
+                    "primary-fixed": "#65fea3",
+                    "error": "#ffb4ab",
+                    "tertiary": "#ffffff",
+                    "on-background": "#e5e2e1",
+                    "background": "#131313",
+                    "on-primary-fixed-variant": "#00522b",
+                    "tertiary-fixed-dim": "#3cddc7",
+                    "primary-container": "#65fea3",
+                    "on-secondary-container": "#b7b5b4",
+                    "on-secondary-fixed": "#1c1b1b",
+                    "outline": "#869587",
+                    "on-primary": "#00391c",
+                    "on-error-container": "#ffdad6",
+                    "on-error": "#690005",
+                    "inverse-surface": "#e5e2e1",
+                    "surface-variant": "#353534",
+                    "surface-container-high": "#2a2a2a",
+                    "surface-container": "#201f1f",
+                    "surface-bright": "#3a3939",
+                    "on-surface-variant": "#bbcbbc",
+                    "surface-tint": "#42e189",
+                    "on-surface": "#e5e2e1",
+                    "surface-container-low": "#1c1b1b",
+                    "on-tertiary-fixed": "#00201c",
+                    "on-secondary-fixed-variant": "#474746",
+                    "inverse-primary": "#006d3b",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-primary-container": "#007440",
+                    "primary": "#ffffff",
+                    "tertiary-fixed": "#62fae3",
+                    "surface": "#131313",
+                    "on-tertiary-container": "#007165",
+                    "primary-fixed-dim": "#42e189",
+                    "on-tertiary-fixed-variant": "#005047"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "md": "16px",
+                    "unit": "4px",
+                    "gutter": "24px",
+                    "sm": "8px",
+                    "xl": "32px",
+                    "2xl": "48px",
+                    "3xl": "64px",
+                    "lg": "24px",
+                    "xs": "4px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Outfit"],
+                    "display-lg-mobile": ["Outfit"],
+                    "body-md": ["Outfit"],
+                    "headline-md": ["Outfit"],
+                    "headline-lg": ["Outfit"],
+                    "body-lg": ["Outfit"],
+                    "label-md": ["Outfit"],
+                    "label-sm": ["Outfit"]
+            },
+            "fontSize": {
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "display-lg-mobile": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="min-h-screen flex flex-col">
+<!-- Universal TopNavBar -->
+<nav class="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] rounded-xl bg-surface-glass backdrop-blur-2xl border border-outline-glass shadow-md shadow-glow-primary/10 flex justify-between items-center px-6 py-3 max-w-container-max mx-auto z-50">
+    <div class="font-display-lg text-headline-md font-bold text-primary tracking-tight cursor-pointer" onclick="window.location.href='index.html'">TerraMind</div>
+    <div class="hidden lg:flex items-center space-x-6">
+        <a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" href="index.html">Home</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" href="dashboard.html">Dashboard</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" href="calculator.html">Calculator</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" href="aicoach.html">AI Coach</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" href="challenges.html">Challenges</a>
+<a class="text-primary border-b-2 border-primary pb-1 font-bold font-label-md text-label-md" href="community.html">Community</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" href="planner.html">Planner</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" href="simulator.html">Simulator</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" href="marketplace.html">Rewards</a>
+
+    </div>
+    <button class="bg-primary text-on-primary px-4 py-1.5 rounded-full font-label-md text-label-md scale-95 active:scale-90 transition-transform shadow-lg shadow-glow-primary hover:brightness-110" onclick="window.location.href='aicoach.html'">
+        Eco Coach
+    </button>
+</nav>
+<!-- TopNavBar -->
+
+<main class="flex-grow pt-32 pb-2xl px-md sm:px-lg max-w-container-max mx-auto w-full">
+<!-- Hero Section -->
+<section class="mb-3xl text-center">
+<h1 class="font-display-lg text-display-lg mb-md text-primary">Collective Intelligence for a <span class="text-primary-fixed">Sustainable Planet</span></h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Connect with eco-innovators, join impactful grassroots movements, and track our collective progress in real-time.</p>
+</section>
+<!-- Filter Tabs -->
+<div class="mb-2xl">
+<div class="flex items-center justify-between border-b border-white/5 pb-unit overflow-x-auto no-scrollbar">
+<div class="flex gap-lg min-w-max">
+<button class="font-label-md text-label-md text-primary-fixed border-b-2 border-primary-fixed pb-md px-xs">Active Groups</button>
+<button class="font-label-md text-label-md text-on-surface-variant hover:text-primary-fixed pb-md px-xs transition-colors">Local Events</button>
+<button class="font-label-md text-label-md text-on-surface-variant hover:text-primary-fixed pb-md px-xs transition-colors">Discussions</button>
+<button class="font-label-md text-label-md text-on-surface-variant hover:text-primary-fixed pb-md px-xs transition-colors">Team Challenges</button>
+</div>
+<button class="hidden md:flex items-center gap-xs bg-primary-fixed text-on-primary-fixed font-label-md px-md py-sm rounded-full primary-glow active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                    Create Group
+                </button>
+</div>
+</div>
+<!-- Groups Grid -->
+<section class="mb-3xl">
+<div class="flex items-center justify-between mb-lg">
+<h2 class="font-headline-md text-headline-md">Trending Communities</h2>
+<a class="text-primary-fixed text-label-md hover:underline" href="index.html">View All</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Group 1 -->
+<div class="glass-card rounded-xl p-lg flex flex-col h-full relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-lg opacity-20 group-hover:opacity-40 transition-opacity">
+<span class="material-symbols-outlined text-display-lg text-primary-fixed">solar_power</span>
+</div>
+<div class="mb-xl">
+<h3 class="font-headline-md text-headline-md text-primary mb-xs">Solar Energy Collective</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">Optimizing decentralized power grids through community sharing.</p>
+<div class="flex items-center gap-xs text-primary-fixed">
+<span class="material-symbols-outlined text-sm">groups</span>
+<span class="font-label-sm text-label-sm">1.2k members</span>
+</div>
+</div>
+<div class="mt-auto flex items-center justify-between">
+<div class="flex -space-x-3">
+<img alt="Member" class="w-10 h-10 rounded-full border-2 border-surface" data-alt="Close up portrait of a young professional woman with a warm, confident expression in a tech-focused office environment. The lighting is crisp and natural, highlighting her modern attire. The overall mood is innovative and collaborative, fitting a high-end SaaS platform aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcMzklWAC7e1kms5_E-xx7bR4yxVtZ8JdOCL1B5a5VwJgwca0_Aj7kn2dt1unge5PlUbpJ9sCzlIhHD3FAb4KhLR5gTMFze9-cnG8SQ50PxnE5PYXHredDUrp64xE8JZ_dzceW_OJMFG-I6gjvR9zrPmn_CjwiSOvDg33VQcYsm2kzYS2HNZ0_SoXnOBuQSlrfX4i5LCOIUHNvxJHMwU77fcfRVTJGbcAytM63y6ike5FWZ6_dSRlNez5RdL5-N-j47_UC4GZvfI8"/>
+<img alt="Member" class="w-10 h-10 rounded-full border-2 border-surface" data-alt="A portrait of a creative individual in a modern studio setting, wearing minimalist tech-wear. The background is slightly blurred with soft ambient blue lighting. The style is hyper-modern and clean, consistent with a high-energy technology brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxhfhfwb6b_O5wWdOV3h5JEdQuxbgv7jG6IJxk_mTEwZ9SaRnEjuBkm3wVZzgul0LxAWrKM8MfjgafD-Z2rmXhpL1qY-JpKMmpl5Mbu-M5n4FHsBmygm9IBrJa6TmCfPTG9I5QzvHD9REeG0h7utyCZwB5MP2wft_EySlUkqwvaFvf1Be20AYwP48AE8idgLj7oF5gADtl7hBksnJ4AiKZ_gcp7b1F7ihvWE_WRT5zfm-I_MAxgGgTxb5xIs1dpOxCmHUSzHD3A-s"/>
+<img alt="Member" class="w-10 h-10 rounded-full border-2 border-surface" data-alt="Portrait of a smiling man with sharp features and a modern haircut, set against a dark architectural background with subtle neon green highlights. The atmosphere is sophisticated and professional, reflecting a high-tech community ecosystem." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTNjjq0kZVr2GL56fs_XtTRpKJ6htkJc-Yy-PZLCoSZFXSuSs-cRCLnbfI3wor7YCC83avdHFbve9hVIBatK6bhUZETDqLryhoSvW96g89V3tdao_fPc64JCPkkSPA9GQ6Dc9KICOUXOFJNh04JlyXoeA_E6-84F9ZzhbBCyehtayl4Atdu5F9GYi8JGLoG_lWt6hAJREZmAqpnTYWcFix_O1gvF5luh2qFTTAHpMsb-UA6gEUqwhOmC05oXRo_naG4viBEXE1fec"/>
+<div class="w-10 h-10 rounded-full border-2 border-surface bg-surface-container-highest flex items-center justify-center text-label-sm text-on-surface-variant">+32</div>
+</div>
+<button class="bg-primary-fixed text-on-primary-fixed px-xl py-sm rounded-lg font-label-md transition-all active:scale-95">Join</button>
+</div>
+</div>
+<!-- Group 2 -->
+<div class="glass-card rounded-xl p-lg flex flex-col h-full relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-lg opacity-20 group-hover:opacity-40 transition-opacity">
+<span class="material-symbols-outlined text-display-lg text-primary-fixed">compost</span>
+</div>
+<div class="mb-xl">
+<h3 class="font-headline-md text-headline-md text-primary mb-xs">Urban Composting Association</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">Circular waste management strategies for high-density living.</p>
+<div class="flex items-center gap-xs text-primary-fixed">
+<span class="material-symbols-outlined text-sm">groups</span>
+<span class="font-label-sm text-label-sm">850 members</span>
+</div>
+</div>
+<div class="mt-auto flex items-center justify-between">
+<div class="flex -space-x-3">
+<img alt="Member" class="w-10 h-10 rounded-full border-2 border-surface" data-alt="A portrait of a thoughtful person in a minimalist urban setting. The lighting is soft and artistic, emphasizing a sustainable and eco-conscious lifestyle. The color palette is muted with slight green accents, matching a dark-mode tech aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuxGJy9CoYRhs8DhY4O32iaYb9guYozOuKzcpcF5Cw8jzNAOpUy7OjbMFcYm6cVF05WQv2CK_tM5acfjitkzwcTH7jFyrvlWnPo62aIEpOPvXsnQKkAkPvxsVMK-wgKLbUUEEaKh0i-FCQQ1wv0k8kyATuOmABHwuw3WexZVrxdy9iwasvNnW9be0A9wOb9Ie28xqv0g-FJD-dyNVLLOezjfFRG4Mh0UMlXGVZEwcwVhw42TfT8F7Wt7BaRgmcFLDewIWX_DRJgMY"/>
+<img alt="Member" class="w-10 h-10 rounded-full border-2 border-surface" data-alt="Professional headshot of a woman in a glass-walled office with blurred green plants in the background. The lighting is high-key and bright, creating a sense of transparency and innovation within a modern digital platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuAax1itczPpDcLdu-M4GDZpkaXWAkKs0poV8v5BKIF3iX8YhOP6EFInfN2Z_N1YFdfEwxPEQ4OYPi6UDNp0OgEs66IyC2mX1_niNPekLWQMUqLauaqsw18LGu4TsOI9pUUvuZam9wQFDa3cOS3J_0iXfvqUAmC0rqtNw0DYWZwimcA7eUaU4Gn5oHFjxAqPnkuswt3-BFqHIAjN4IflZQa0PcujICltIoerhKVTxnEfLTtedSZuGQ9t4UVtnjPWNC-K2brke8-kM"/>
+<div class="w-10 h-10 rounded-full border-2 border-surface bg-surface-container-highest flex items-center justify-center text-label-sm text-on-surface-variant">+18</div>
+</div>
+<button class="bg-primary-fixed text-on-primary-fixed px-xl py-sm rounded-lg font-label-md transition-all active:scale-95">Join</button>
+</div>
+</div>
+<!-- Group 3 -->
+<div class="glass-card rounded-xl p-lg flex flex-col h-full relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-lg opacity-20 group-hover:opacity-40 transition-opacity">
+<span class="material-symbols-outlined text-display-lg text-primary-fixed">electric_car</span>
+</div>
+<div class="mb-xl">
+<h3 class="font-headline-md text-headline-md text-primary mb-xs">Zero Emission Commuters</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">Advocating for electric and active transit infrastructure nationwide.</p>
+<div class="flex items-center gap-xs text-primary-fixed">
+<span class="material-symbols-outlined text-sm">groups</span>
+<span class="font-label-sm text-label-sm">2.4k members</span>
+</div>
+</div>
+<div class="mt-auto flex items-center justify-between">
+<div class="flex -space-x-3">
+<img alt="Member" class="w-10 h-10 rounded-full border-2 border-surface" data-alt="A portrait of a male tech enthusiast with a beard, wearing smart-casual clothing in a dark, neon-lit laboratory environment. The lighting features sharp primary green accents on his face, evoking a futuristic and masterly technological vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-ZjFr7m7cpJLQRTSA9U93IjYGIzKfGY6o1-9_y63lzFT21Jtm8TGQDr77Sx_E5Y6wjgLcbh9ryrWOCODUE0P_VC2y11a9TIfdReQJf1pNj6SWiQ9eQ8Wp2hV7_LrVTFaY9KB35S57O-DoIm8QFSjYd8KVo6MMKw-tNwLvklenroo3xvkTqhHJltnWYjgRJ8HFhs38aNj7RdrIxVAQp5hoEgmhbbcEuM0Vh6-5gDfgrxFUat4a1vM8MwgOj3-gaOz0_n9MbDT2IxE"/>
+<img alt="Member" class="w-10 h-10 rounded-full border-2 border-surface" data-alt="An energetic portrait of a woman laughing in a high-tech, modern hub. The background is a fusion of glass and dark steel with a soft glow effect. The image communicates vitality, innovation, and the high-energy spirit of a cutting-edge community." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDA6ib7c2vDa4zs81oVoQUjka7r2I9PsmGuvkC9-7iu-XC7YReL3U_9kkcPu1RM2kuFBDJhNIJYSKStXFSip4tjfm2ME2qOWGXy0iK5_3f4y67-e9PNeEMmq091GCHRzIdj9hXUiysEGTwrnlCTNzRgCsl_srynCGmJk1bg4XP5kr-313Q0TU6cHyyokpkAxmXiTWLkgUEwXoy9WDul7c8GRwM2r2iOUbmb7LkDwgLPy20W3Qkakstp5z6RoXfCo4-49pBFdcRJbAA"/>
+<img alt="Member" class="w-10 h-10 rounded-full border-2 border-surface" data-alt="Portrait of a young man with a focused expression, set in a minimalist digital environment with soft, atmospheric lighting. The design is sleek and high-contrast, aligning with the sophisticated dark-mode UI of the platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAklT_WNgRrTagpN12kcfwZ21DTLItAGlShlcrvV5_5ZSuUzFi_tAFyiGZ6DdS9NdKjKDIJK0SGPYMwRQ0-nHoWi83kBqOac9Rg47nKdCKheztrIqvLMeZ7H-osIGwK_uJOczl4glZqkCm2msBBv_9M0P5mr_q9WE8YwM8cuW9shj3SZnpzpQ4OyPYFZrMOQ6bsSCjW-12aYnzJhhSD1yK69rr1UwVfrYooz3Jm9VtsjkPrzKz8MGOBi4Cyl1ujby-v5POxmFz7_cU"/>
+<div class="w-10 h-10 rounded-full border-2 border-surface bg-surface-container-highest flex items-center justify-center text-label-sm text-on-surface-variant">+112</div>
+</div>
+<button class="bg-primary-fixed text-on-primary-fixed px-xl py-sm rounded-lg font-label-md transition-all active:scale-95">Join</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Content Area: Events and Discussions -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Local Events Section (Left Column) -->
+<section class="lg:col-span-7">
+<div class="flex items-center justify-between mb-lg">
+<h2 class="font-headline-md text-headline-md">Upcoming Events</h2>
+<button class="text-on-surface-variant hover:text-primary-fixed transition-colors">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+</div>
+<div class="space-y-md">
+<!-- Event 1 -->
+<div class="glass-card rounded-xl p-md sm:p-lg flex flex-col sm:flex-row gap-lg items-start">
+<div class="flex flex-col items-center justify-center min-w-[80px] bg-primary-fixed/10 border border-primary-fixed/20 rounded-xl py-md">
+<span class="font-label-sm text-label-sm text-primary-fixed uppercase tracking-widest">Oct</span>
+<span class="font-display-lg text-headline-lg text-primary-fixed">15</span>
+</div>
+<div class="flex-grow">
+<div class="flex items-center gap-xs mb-unit">
+<span class="material-symbols-outlined text-[14px] text-primary-fixed">location_on</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Central Park West, NY</span>
+</div>
+<h4 class="font-headline-md text-headline-md mb-xs text-primary">Community Tree-Planting Day</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">Join over 200 volunteers to restore the urban canopy and improve local air quality index.</p>
+<div class="flex items-center gap-md">
+<button class="border border-primary-fixed text-primary-fixed px-lg py-sm rounded-lg font-label-md hover:bg-primary-fixed/5 transition-all">Interested</button>
+<span class="font-label-sm text-label-sm text-on-surface-variant">42 attending</span>
+</div>
+</div>
+</div>
+<!-- Event 2 -->
+<div class="glass-card rounded-xl p-md sm:p-lg flex flex-col sm:flex-row gap-lg items-start">
+<div class="flex flex-col items-center justify-center min-w-[80px] bg-white/5 border border-white/10 rounded-xl py-md">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Oct</span>
+<span class="font-display-lg text-headline-lg text-on-surface">22</span>
+</div>
+<div class="flex-grow">
+<div class="flex items-center gap-xs mb-unit">
+<span class="material-symbols-outlined text-[14px] text-primary-fixed">bolt</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">TerraMind Hub, Silicon Valley</span>
+</div>
+<h4 class="font-headline-md text-headline-md mb-xs text-primary">EV Meetup &amp; Charge</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">Networking for EV owners and enthusiasts. Free fast-charging during the session.</p>
+<div class="flex items-center gap-md">
+<button class="border border-primary-fixed text-primary-fixed px-lg py-sm rounded-lg font-label-md hover:bg-primary-fixed/5 transition-all">Interested</button>
+<span class="font-label-sm text-label-sm text-on-surface-variant">89 attending</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Discussion Forum (Right Column) -->
+<section class="lg:col-span-5">
+<div class="flex items-center justify-between mb-lg">
+<h2 class="font-headline-md text-headline-md">Global Discussions</h2>
+<a class="text-primary-fixed text-label-md hover:underline" href="index.html">New Post</a>
+</div>
+<div class="glass-card rounded-xl overflow-hidden divide-y divide-white/5">
+<!-- Post 1 -->
+<div class="p-lg hover:bg-white/5 transition-colors cursor-pointer group">
+<div class="flex items-start gap-md">
+<div class="flex flex-col items-center justify-start gap-xs pt-xs">
+<button class="material-symbols-outlined text-primary-fixed hover:scale-125 transition-transform">keyboard_arrow_up</button>
+<span class="font-label-md text-label-md text-primary-fixed">45</span>
+<button class="material-symbols-outlined text-on-surface-variant hover:scale-125 transition-transform">keyboard_arrow_down</button>
+</div>
+<div>
+<h5 class="font-label-md text-body-md font-semibold text-primary mb-xs group-hover:text-primary-fixed transition-colors">Sustainable Home Upgrades: Where to Start?</h5>
+<div class="flex items-center gap-md text-label-sm text-on-surface-variant">
+<span class="flex items-center gap-xs"><span class="material-symbols-outlined text-sm">chat_bubble</span> 12 replies</span>
+<span>2h ago • by eco_pioneer</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Post 2 -->
+<div class="p-lg hover:bg-white/5 transition-colors cursor-pointer group">
+<div class="flex items-start gap-md">
+<div class="flex flex-col items-center justify-start gap-xs pt-xs">
+<button class="material-symbols-outlined text-primary-fixed hover:scale-125 transition-transform">keyboard_arrow_up</button>
+<span class="font-label-md text-label-md text-primary-fixed">89</span>
+<button class="material-symbols-outlined text-on-surface-variant hover:scale-125 transition-transform">keyboard_arrow_down</button>
+</div>
+<div>
+<h5 class="font-label-md text-body-md font-semibold text-primary mb-xs group-hover:text-primary-fixed transition-colors">Reducing Microplastic at Home - Tips &amp; Tricks</h5>
+<div class="flex items-center gap-md text-label-sm text-on-surface-variant">
+<span class="flex items-center gap-xs"><span class="material-symbols-outlined text-sm">chat_bubble</span> 34 replies</span>
+<span>5h ago • by water_guardian</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Post 3 -->
+<div class="p-lg hover:bg-white/5 transition-colors cursor-pointer group">
+<div class="flex items-start gap-md">
+<div class="flex flex-col items-center justify-start gap-xs pt-xs">
+<button class="material-symbols-outlined text-primary-fixed hover:scale-125 transition-transform">keyboard_arrow_up</button>
+<span class="font-label-md text-label-md text-primary-fixed">212</span>
+<button class="material-symbols-outlined text-on-surface-variant hover:scale-125 transition-transform">keyboard_arrow_down</button>
+</div>
+<div>
+<h5 class="font-label-md text-body-md font-semibold text-primary mb-xs group-hover:text-primary-fixed transition-colors">Policy Change: New Solar Incentives in the EU</h5>
+<div class="flex items-center gap-md text-label-sm text-on-surface-variant">
+<span class="flex items-center gap-xs"><span class="material-symbols-outlined text-sm">chat_bubble</span> 156 replies</span>
+<span>10h ago • by terra_intel</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-auto bg-surface-container-lowest border-t border-white/5">
+<div class="flex flex-col md:flex-row justify-between items-center px-lg py-xl gap-gutter max-w-container-max mx-auto">
+<div class="flex flex-col gap-sm">
+<span class="font-headline-md text-headline-md font-bold text-primary-fixed">TerraMind</span>
+<p class="font-body-md text-body-md text-primary-fixed-dim">© 2024 TerraMind. Empowering a greener future through tech.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-xl">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary-fixed transition-colors cursor-pointer" href="index.html">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary-fixed transition-colors cursor-pointer" href="index.html">Terms of Service</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary-fixed transition-colors cursor-pointer" href="index.html">Contact Us</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary-fixed transition-colors cursor-pointer" href="index.html">Whitepaper</a>
+</div>
+<div class="flex gap-md">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary-fixed transition-colors cursor-pointer">public</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary-fixed transition-colors cursor-pointer">share</span>
+</div>
+</div>
+</footer>
+<script>
+        // Simple micro-interaction for button scaling
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('mousedown', () => {
+                button.classList.add('scale-95');
+            });
+            button.addEventListener('mouseup', () => {
+                button.classList.remove('scale-95');
+            });
+            button.addEventListener('mouseleave', () => {
+                button.classList.remove('scale-95');
+            });
+        });
+
+        // Hover effect for group titles
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                const title = card.querySelector('h3');
+                if (title) title.classList.add('text-primary-fixed');
+            });
+            card.addEventListener('mouseleave', () => {
+                const title = card.querySelector('h3');
+                if (title) title.classList.remove('text-primary-fixed');
+            });
+        });
+    </script>
+</body></html>

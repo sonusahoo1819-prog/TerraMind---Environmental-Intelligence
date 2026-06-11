@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TerraMind | Environmental Intelligence</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#42e189",
+                        "primary": "#65fea3",
+                        "secondary-fixed-dim": "#98cbff",
+                        "surface-container-highest": "#2f3730",
+                        "surface-container-low": "#161d17",
+                        "background-deep": "#0e150f",
+                        "surface-variant": "#2f3730",
+                        "glow-primary": "rgba(66, 225, 137, 0.3)",
+                        "on-secondary": "#003354",
+                        "surface-dim": "#0e150f",
+                        "on-error": "#690005",
+                        "on-secondary-fixed-variant": "#034a77",
+                        "on-primary-fixed": "#00210e",
+                        "tertiary-container": "#95da23",
+                        "outline-variant": "#3c4a3f",
+                        "on-primary": "#00391c",
+                        "tertiary-fixed-dim": "#95da23",
+                        "on-secondary-fixed": "#001d33",
+                        "tertiary": "#b0f743",
+                        "secondary": "#98cbff",
+                        "primary-fixed-dim": "#42e189",
+                        "tertiary-fixed": "#b0f743",
+                        "background": "#0e150f",
+                        "on-surface": "#dce5db",
+                        "surface": "#0e150f",
+                        "inverse-on-surface": "#2a322c",
+                        "secondary-fixed": "#cfe5ff",
+                        "secondary-container": "#034a77",
+                        "on-tertiary": "#213600",
+                        "on-tertiary-fixed-variant": "#324f00",
+                        "inverse-primary": "#006d3b",
+                        "on-tertiary-fixed": "#111f00",
+                        "on-tertiary-container": "#3a5c00",
+                        "surface-container-lowest": "#08100a",
+                        "on-surface-variant": "#bbcbbc",
+                        "error-container": "#93000a",
+                        "on-background": "#dce5db",
+                        "inverse-surface": "#dce5db",
+                        "on-secondary-container": "#87baed",
+                        "surface-container-high": "#242c25",
+                        "surface-glass": "rgba(26, 33, 27, 0.4)",
+                        "outline-glass": "rgba(255, 255, 255, 0.1)",
+                        "on-error-container": "#ffdad6",
+                        "background-radial-glow": "#16261b",
+                        "outline": "#869587",
+                        "surface-tint": "#42e189",
+                        "surface-bright": "#333b34",
+                        "on-primary-fixed-variant": "#00522b",
+                        "error": "#ffb4ab",
+                        "surface-container": "#1a211b",
+                        "glow-tertiary": "rgba(149, 218, 35, 0.15)",
+                        "on-primary-container": "#006033",
+                        "primary-fixed": "#65fea3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "40px",
+                        "xl": "64px",
+                        "base": "4px",
+                        "md": "24px",
+                        "sm": "16px",
+                        "gutter": "24px",
+                        "xs": "8px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Outfit"],
+                        "body-md": ["Inter"],
+                        "display-lg-mobile": ["Outfit"],
+                        "headline-md": ["Outfit"],
+                        "headline-lg": ["Outfit"],
+                        "label-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #0e150f;
+            background-image: radial-gradient(circle at top right, #16261b 0%, #0e150f 100%);
+            color: #dce5db;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(26, 33, 27, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glow-hover:hover {
+            box-shadow: 0 0 20px rgba(101, 254, 163, 0.2);
+            border-color: rgba(101, 254, 163, 0.4);
+        }
+        @keyframes pulse-slow {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(0.98); }
+        }
+        .animate-pulse-slow {
+            animation: pulse-slow 4s infinite ease-in-out;
+        }
+    </style>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="font-body-md text-body-md overflow-x-hidden">
+
+<!-- Futuristic Glassmorphic Preloader -->
+<div id="preloader" class="fixed inset-0 bg-[#0e150f] z-[9999] flex flex-col items-center justify-center transition-all duration-700 ease-out">
+    <div class="absolute w-72 h-72 rounded-full bg-primary/10 blur-[80px] animate-pulse"></div>
+    <div class="relative flex flex-col items-center gap-6 text-center">
+        <div class="relative w-20 h-20">
+            <div class="absolute inset-0 rounded-full border-4 border-primary/20"></div>
+            <div class="absolute inset-0 rounded-full border-4 border-primary border-t-transparent animate-spin"></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+                <span class="material-symbols-outlined text-primary text-3xl animate-pulse">eco</span>
+            </div>
+        </div>
+        <div>
+            <h2 class="font-display-lg text-headline-lg font-bold text-primary tracking-tight mb-2">TerraMind</h2>
+            <p class="text-on-surface-variant font-label-md text-label-md tracking-widest uppercase animate-pulse">Environmental Intelligence Loading...</p>
+        </div>
+    </div>
+</div>
+
+<!-- Universal TopNavBar -->
+<nav class="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] rounded-xl bg-surface-glass backdrop-blur-2xl border border-outline-glass shadow-md shadow-glow-primary/10 flex justify-between items-center px-6 py-3 max-w-container-max mx-auto z-50">
+    <div class="font-display-lg text-headline-md font-bold text-primary tracking-tight cursor-pointer" onclick="window.location.href='index.html'">TerraMind</div>
+    <div class="hidden lg:flex items-center space-x-6">
+        <a class="text-primary border-b-2 border-primary pb-1 font-bold font-label-md text-label-md" href="index.html">Home</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" href="dashboard.html">Dashboard</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" href="calculator.html">Calculator</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" href="aicoach.html">AI Coach</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" href="challenges.html">Challenges</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" href="community.html">Community</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" href="planner.html">Planner</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" href="simulator.html">Simulator</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" href="marketplace.html">Rewards</a>
+
+    </div>
+    <button class="bg-primary text-on-primary px-4 py-1.5 rounded-full font-label-md text-label-md scale-95 active:scale-90 transition-transform shadow-lg shadow-glow-primary hover:brightness-110" onclick="window.location.href='aicoach.html'">
+        Eco Coach
+    </button>
+</nav>
+<!-- TopNavBar (Shared Component) -->
+
+<!-- Hero Section -->
+<section class="relative pt-32 pb-24 md:pt-48 md:pb-32 px-sm md:px-xl max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 gap-lg items-center">
+<div class="z-10">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-md">
+                Understand Your Impact. <br/>
+<span class="text-primary">Shape a Sustainable Future.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg mb-lg">
+                Harness the power of high-precision ecological intelligence. Track emissions in real-time, earn carbon credits, and join a global community of change-makers.
+            </p>
+<div class="flex flex-col sm:flex-row gap-md">
+<button class="bg-primary text-on-primary px-lg py-sm rounded-xl font-label-md text-label-md shadow-lg shadow-glow-primary hover:brightness-110 transition-all active:scale-95">
+                    Calculate My Footprint
+                </button>
+<button class="glass-panel text-on-surface px-lg py-sm rounded-xl font-label-md text-label-md border border-outline-glass hover:bg-white/5 transition-all active:scale-95 flex items-center justify-center gap-xs">
+                    Explore Journey
+                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="relative w-full aspect-square max-w-[600px] mx-auto md:ml-auto">
+<!-- Glassmorphic Container for 3D Visual -->
+<div class="w-full h-full glass-panel rounded-3xl overflow-hidden relative shadow-2xl">
+            <canvas id="earth-canvas" class="w-full h-full absolute inset-0"></canvas>
+<!-- 3D Earth Placeholder via webgl-shader -->
+
+<!-- Floating Data Overlays -->
+<div class="absolute top-md left-md glass-panel p-sm rounded-xl border border-outline-glass flex items-center gap-sm backdrop-blur-xl animate-pulse-slow">
+<div class="w-xs h-xs bg-error rounded-full animate-ping"></div>
+<div>
+<div class="text-label-sm font-label-sm uppercase tracking-widest text-on-surface-variant">Global Carbon Clock</div>
+<div class="text-headline-md font-headline-md text-on-surface">421.45 <span class="text-label-sm text-on-surface-variant">PPM</span></div>
+</div>
+</div>
+<div class="absolute bottom-md right-md glass-panel p-sm rounded-xl border border-outline-glass backdrop-blur-xl">
+<div class="text-label-sm font-label-sm uppercase tracking-widest text-on-surface-variant mb-xs">Energy Flow</div>
+<div class="flex items-end gap-base h-xs">
+<div class="w-1 bg-primary h-[40%] rounded-t-full"></div>
+<div class="w-1 bg-primary h-[70%] rounded-t-full"></div>
+<div class="w-1 bg-primary h-[50%] rounded-t-full"></div>
+<div class="w-1 bg-primary h-[90%] rounded-t-full"></div>
+<div class="w-1 bg-primary h-[60%] rounded-t-full"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Dashboard Preview -->
+<section class="px-sm md:px-xl py-xl max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<!-- Carbon Score -->
+<div class="glass-panel p-lg rounded-2xl glow-hover transition-all">
+<div class="flex justify-between items-start mb-md">
+<h3 class="font-headline-md text-headline-md text-on-surface">Carbon Score</h3>
+<span class="material-symbols-outlined text-primary">eco</span>
+</div>
+<div class="flex items-center justify-center py-md relative">
+<!-- Circular Progress (SVG) -->
+<svg class="w-32 h-32 transform -rotate-90">
+<circle class="text-surface-container-highest" cx="64" cy="64" fill="transparent" r="58" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-primary" cx="64" cy="64" fill="transparent" r="58" stroke="currentColor" stroke-dasharray="364.4" stroke-dashoffset="65.6" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-headline-lg font-headline-lg text-primary">82</span>
+<span class="text-label-sm text-on-surface-variant">/100</span>
+</div>
+</div>
+<p class="text-center text-label-md text-on-surface-variant mt-sm">Performing better than 74% of peers</p>
+</div>
+<!-- Weekly Trends -->
+<div class="glass-panel p-lg rounded-2xl glow-hover transition-all">
+<div class="flex justify-between items-start mb-md">
+<h3 class="font-headline-md text-headline-md text-on-surface">Weekly Trends</h3>
+<span class="material-symbols-outlined text-secondary">trending_down</span>
+</div>
+<div class="h-32 w-full mt-md flex items-end justify-between px-base">
+<!-- Chart Bars -->
+<div class="w-8 bg-surface-container-highest rounded-t-lg h-[60%]"></div>
+<div class="w-8 bg-surface-container-highest rounded-t-lg h-[80%]"></div>
+<div class="w-8 bg-surface-container-highest rounded-t-lg h-[70%]"></div>
+<div class="w-8 bg-secondary-container/40 rounded-t-lg h-[40%] border-t-2 border-secondary"></div>
+<div class="w-8 bg-secondary-container/40 rounded-t-lg h-[35%] border-t-2 border-secondary"></div>
+</div>
+<div class="mt-md flex items-center gap-xs text-secondary">
+<span class="material-symbols-outlined text-sm">arrow_downward</span>
+<span class="font-bold">15% reduction</span>
+<span class="text-on-surface-variant text-label-sm ml-auto">Last 7 days</span>
+</div>
+</div>
+<!-- Eco XP -->
+<div class="glass-panel p-lg rounded-2xl glow-hover transition-all">
+<div class="flex justify-between items-start mb-md">
+<h3 class="font-headline-md text-headline-md text-on-surface">Eco XP</h3>
+<span class="material-symbols-outlined text-tertiary">military_tech</span>
+</div>
+<div class="mt-md">
+<div class="flex justify-between items-end mb-xs">
+<span class="text-headline-lg font-headline-lg text-tertiary">Level 24</span>
+<span class="text-label-md text-on-surface-variant">24,500 / 30k</span>
+</div>
+<div class="w-full h-3 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-tertiary" style="width: 81.6%"></div>
+</div>
+<div class="mt-lg flex gap-sm overflow-x-auto pb-xs no-scrollbar">
+<div class="min-w-[40px] h-10 rounded-full glass-panel flex items-center justify-center border-tertiary/30">
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">forest</span>
+</div>
+<div class="min-w-[40px] h-10 rounded-full glass-panel flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">water_drop</span>
+</div>
+<div class="min-w-[40px] h-10 rounded-full glass-panel flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">bolt</span>
+</div>
+<div class="min-w-[40px] h-10 rounded-full glass-panel flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">recycling</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Features Showcase Bento Grid -->
+<section class="px-sm md:px-xl py-xl max-w-container-max mx-auto">
+<div class="mb-lg">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-xs">Empowering Modules</h2>
+<p class="text-on-surface-variant max-w-lg">Advanced tools designed to simplify complex environmental data into actionable steps.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-md">
+<!-- Smart Footprint Calculator -->
+<div class="md:col-span-2 glass-panel p-lg rounded-3xl group relative overflow-hidden h-[320px] flex flex-col justify-end transition-all hover:-translate-y-1">
+<div class="absolute top-0 right-0 p-lg opacity-20 group-hover:opacity-40 transition-opacity">
+<span class="material-symbols-outlined text-[120px]">calculate</span>
+</div>
+<div class="relative z-10">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-xs">Smart Footprint Calculator</h3>
+<p class="text-on-surface-variant mb-md">Precise IoT-driven analysis using real-world data points from your home and transit.</p>
+<button class="text-primary font-label-md flex items-center gap-xs hover:underline">
+                        Learn More <span class="material-symbols-outlined text-sm">arrow_outward</span>
+</button>
+</div>
+</div>
+<!-- AI Sustainability Coach -->
+<div class="glass-panel p-lg rounded-3xl group transition-all hover:bg-surface-variant/40 flex flex-col items-center text-center h-[320px]">
+<div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-md group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-headline-lg">psychology</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-xs">AI Coach</h3>
+<p class="text-on-surface-variant text-label-md">Personalized insights and daily missions tailored to your lifestyle.</p>
+</div>
+<!-- Gamification Streaks -->
+<div class="glass-panel p-lg rounded-3xl group transition-all hover:bg-surface-variant/40 flex flex-col items-center text-center h-[320px]">
+<div class="w-16 h-16 bg-tertiary/10 rounded-2xl flex items-center justify-center mb-md group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-tertiary text-headline-lg">local_fire_department</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-xs">Streaks</h3>
+<p class="text-on-surface-variant text-label-md">Maintain ecological habits to unlock exclusive rewards and badges.</p>
+</div>
+<!-- Rewards Marketplace (Full width mobile / last card) -->
+<div class="md:col-span-4 glass-panel p-xl rounded-3xl flex flex-col md:flex-row items-center justify-between gap-lg relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="max-w-xl relative z-10">
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-sm">Rewards Marketplace</h3>
+<p class="text-on-surface-variant font-body-lg">Trade your earned TerraCredits for carbon offsets, eco-certified lifestyle products, or donate to global restoration projects.</p>
+</div>
+<div class="flex -space-x-4 relative z-10">
+<div class="w-24 h-24 rounded-2xl bg-surface-container-highest border border-outline-glass flex items-center justify-center shadow-xl rotate-[-6deg] hover:rotate-0 transition-transform">
+<span class="material-symbols-outlined text-primary text-headline-lg">shopping_bag</span>
+</div>
+<div class="w-24 h-24 rounded-2xl bg-surface-container-highest border border-outline-glass flex items-center justify-center shadow-xl rotate-[3deg] hover:rotate-0 transition-transform">
+<span class="material-symbols-outlined text-tertiary text-headline-lg">payments</span>
+</div>
+<div class="w-24 h-24 rounded-2xl bg-surface-container-highest border border-outline-glass flex items-center justify-center shadow-xl rotate-[12deg] hover:rotate-0 transition-transform">
+<span class="material-symbols-outlined text-secondary text-headline-lg">volunteer_activism</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Banner -->
+<section class="px-sm md:px-xl py-xl max-w-container-max mx-auto">
+<div class="relative rounded-[40px] overflow-hidden glass-panel p-xl md:p-32 text-center">
+<!-- Atmospheric BG for CTA -->
+<div class="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-tertiary/5"></div>
+<div class="relative z-10 max-w-3xl mx-auto">
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-md">
+                    Start Your Sustainability Journey Today
+                </h2>
+<p class="text-body-lg text-on-surface-variant mb-xl">
+                    Join over 500,000 users worldwide who are already reducing their footprint and earning rewards.
+                </p>
+<div class="flex flex-col sm:flex-row gap-md justify-center">
+<button class="bg-primary text-on-primary px-xl py-sm rounded-xl font-headline-md shadow-lg shadow-glow-primary hover:brightness-110 active:scale-95 transition-all">
+                        Get Started
+                    </button>
+<button class="glass-panel text-on-surface px-xl py-sm rounded-xl font-headline-md border border-outline-glass hover:bg-white/5 active:scale-95 transition-all">
+                        View Pricing
+                    </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer (Shared Component) -->
+<footer class="w-full mt-xl bg-background-deep border-t border-outline-variant flex flex-col md:flex-row justify-between items-center px-xl py-lg max-w-container-max mx-auto">
+<div class="flex flex-col gap-sm items-center md:items-start mb-md md:mb-0">
+<div class="font-display-lg text-headline-md text-primary">TerraMind</div>
+<p class="text-on-surface-variant font-body-md text-label-sm text-center md:text-left">© 2024 TerraMind Intelligence. All rights reserved.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-md">
+<a class="text-on-surface-variant hover:text-tertiary transition-colors font-body-md text-body-md" href="index.html">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors font-body-md text-body-md" href="index.html">Terms of Service</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors font-body-md text-body-md" href="index.html">Contact Support</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors font-body-md text-body-md" href="index.html">Global Sustainability Data</a>
+</div>
+</footer>
+<script>
+        // Micro-interactions and atmospheric effects
+        document.addEventListener('mousemove', (e) => {
+            const panels = document.querySelectorAll('.glass-panel');
+            const mouseX = e.clientX;
+            const mouseY = e.clientY;
+
+            panels.forEach(panel => {
+                const rect = panel.getBoundingClientRect();
+                const x = mouseX - rect.left;
+                const y = mouseY - rect.top;
+
+                // Subtle light movement effect on hover
+                if (x > 0 && x < rect.width && y > 0 && y < rect.height) {
+                    panel.style.setProperty('--mouse-x', `${x}px`);
+                    panel.style.setProperty('--mouse-y', `${y}px`);
+                }
+            });
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="js/earth.js"></script>
+
+    <script>
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            if (preloader) {
+                setTimeout(() => {
+                    preloader.classList.add('opacity-0', 'pointer-events-none');
+                    setTimeout(() => { preloader.remove(); }, 700);
+                }, 1500); // 1.5s visual showcase
+            }
+        });
+    </script>
+</body></html>
