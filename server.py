@@ -4,6 +4,13 @@ import database
 
 app = Flask(__name__, static_folder='site/public', static_url_path='')
 
+@app.after_request
+def add_security_headers(response):
+    response.headers['X-Frame-Options'] = 'DENY'
+    response.headers['X-Content-Type-Options'] = 'nosniff'
+    response.headers['X-XSS-Protection'] = '1; mode=block'
+    return response
+
 # ==========================================
 # FRONTEND STATIC FILES SERVING
 # ==========================================
@@ -258,5 +265,5 @@ def redeem_marketplace_voucher():
 
 if __name__ == '__main__':
     print("Starting TerraMind API Server on http://localhost:8000...")
-    # Run server locally on port 8000
-    app.run(host='0.0.0.0', port=8000, debug=True)
+    debug_mode = os.environ.get("FLASK_DEBUG", "false").lower() == "true"
+    app.run(host='0.0.0.0', port=8000, debug=debug_mode)

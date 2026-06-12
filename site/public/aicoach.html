@@ -142,7 +142,7 @@
 </head>
 <body class="bg-background text-on-background font-body-md overflow-x-hidden min-h-screen">
 <!-- Universal TopNavBar -->
-<nav class="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] rounded-xl bg-surface-glass backdrop-blur-2xl border border-outline-glass shadow-md shadow-glow-primary/10 flex justify-between items-center px-6 py-3 max-w-container-max mx-auto z-50">
+<nav aria-label="Main Navigation" class="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] rounded-xl bg-surface-glass backdrop-blur-2xl border border-outline-glass shadow-md shadow-glow-primary/10 flex justify-between items-center px-6 py-3 max-w-container-max mx-auto z-50">
     <div class="font-display-lg text-headline-md font-bold text-primary tracking-tight cursor-pointer" onclick="window.location.href='index.html'">TerraMind</div>
     <div class="hidden lg:flex items-center space-x-6">
         <a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" href="index.html">Home</a>
@@ -250,8 +250,8 @@
 </div>
 </div>
 <div class="flex gap-2">
-<button class="p-2 rounded-lg hover:bg-surface-variant transition-colors material-symbols-outlined text-on-surface-variant">history</button>
-<button class="p-2 rounded-lg hover:bg-surface-variant transition-colors material-symbols-outlined text-on-surface-variant">more_vert</button>
+<button aria-label="View activity history" class="p-2 rounded-lg hover:bg-surface-variant transition-colors material-symbols-outlined text-on-surface-variant">history</button>
+<button aria-label="More actions menu" class="p-2 rounded-lg hover:bg-surface-variant transition-colors material-symbols-outlined text-on-surface-variant">more_vert</button>
 </div>
 </header>
 <!-- Chat History -->
@@ -312,13 +312,11 @@
 <button class="whitespace-nowrap px-4 py-1.5 rounded-full glass-panel text-label-md text-on-surface-variant hover:text-primary hover:border-primary/40 transition-all">Review my planner</button>
 </div>
 <div class="relative">
-<input class="w-full bg-surface-container-lowest/50 border border-outline-glass rounded-xl px-6 py-4 pr-32 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all text-body-md placeholder:text-on-surface-variant/50" placeholder="Type your message to Coach Terra..." type="text"/>
+<input aria-label="Type your message to Coach Terra..." class="w-full bg-surface-container-lowest/50 border border-outline-glass rounded-xl px-6 py-4 pr-32 focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all text-body-md placeholder:text-on-surface-variant/50" placeholder="Type your message to Coach Terra..." type="text"/>
 <div class="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-2">
-<button class="p-2 rounded-lg hover:bg-primary/10 text-on-surface-variant transition-colors material-symbols-outlined">attach_file</button>
-<button class="p-2 rounded-lg hover:bg-primary/10 text-on-surface-variant transition-colors material-symbols-outlined">mic</button>
-<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary text-on-primary shadow-lg shadow-primary/20 hover:scale-105 active:scale-95 transition-all">
-<span class="material-symbols-outlined">send</span>
-</button>
+<button aria-label="Attach file upload" class="p-2 rounded-lg hover:bg-primary/10 text-on-surface-variant transition-colors material-symbols-outlined">attach_file</button>
+<button aria-label="Voice recording input" class="p-2 rounded-lg hover:bg-primary/10 text-on-surface-variant transition-colors material-symbols-outlined">mic</button>
+<button aria-label="Send message" class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary text-on-primary shadow-lg shadow-primary/20 hover:scale-105 active:scale-95 transition-all"><span class="material-symbols-outlined">send</span></button>
 </div>
 </div>
 </footer>
@@ -368,5 +366,5 @@
             });
         });
     </script>
-    <script src="js/aicoach.js"></script>
+    <script src="js/aicoach.js" defer></script>
 </body></html>

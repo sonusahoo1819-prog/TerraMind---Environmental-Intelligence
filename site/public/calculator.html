@@ -6,8 +6,8 @@
 <title>TerraMind | Smart Footprint Calculator</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Outfit:wght@600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+
+
 <script id="tailwind-config">
       tailwind.config = {
         darkMode: "class",
@@ -127,10 +127,12 @@
         }
     </style>
     <link rel="stylesheet" href="css/style.css">
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 </head>
 <body class="antialiased min-h-screen">
 <!-- Universal TopNavBar -->
-<nav class="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] rounded-xl bg-surface-glass backdrop-blur-2xl border border-outline-glass shadow-md shadow-glow-primary/10 flex justify-between items-center px-6 py-3 max-w-container-max mx-auto z-50">
+<nav aria-label="Main Navigation" class="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] rounded-xl bg-surface-glass backdrop-blur-2xl border border-outline-glass shadow-md shadow-glow-primary/10 flex justify-between items-center px-6 py-3 max-w-container-max mx-auto z-50">
     <div class="font-display-lg text-headline-md font-bold text-primary tracking-tight cursor-pointer" onclick="window.location.href='index.html'">TerraMind</div>
     <div class="hidden lg:flex items-center space-x-6">
         <a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" href="index.html">Home</a>
@@ -181,7 +183,7 @@
 <div class="space-y-md">
 <div class="space-y-xs">
 <label class="font-label-sm text-on-surface-variant">Weekly Mileage (Car)</label>
-<input class="w-full h-1 bg-surface-variant rounded-lg appearance-none cursor-pointer accent-primary" type="range"/>
+<input aria-label="Slider adjustment control" class="w-full h-1 bg-surface-variant rounded-lg appearance-none cursor-pointer accent-primary" type="range"/>
 </div>
 <div class="grid grid-cols-2 gap-sm">
 <button class="bg-surface-variant/50 hover:bg-primary/20 border border-outline-glass rounded-lg py-sm px-xs font-label-md transition-colors text-center">Public Transit</button>
@@ -205,7 +207,7 @@
 <div class="space-y-xs">
 <label class="font-label-sm text-on-surface-variant">Solar Usage %</label>
 <div class="flex items-center gap-sm">
-<input class="bg-surface-variant/30 border-outline-glass rounded-lg px-sm py-2 w-20 text-center font-label-md focus:ring-1 focus:ring-secondary outline-none" type="number" value="45"/>
+<input aria-label="Numeric parameter entry" class="bg-surface-variant/30 border-outline-glass rounded-lg px-sm py-2 w-20 text-center font-label-md focus:ring-1 focus:ring-secondary outline-none" type="number" value="45"/>
 <div class="flex-1 h-2 bg-surface-variant rounded-full overflow-hidden">
 <div class="h-full bg-secondary w-[45%]"></div>
 </div>
@@ -427,5 +429,5 @@
         }
         animate();
     </script>
-    <script src="js/calculator.js"></script>
+    <script src="js/calculator.js" defer></script>
 </body></html>
