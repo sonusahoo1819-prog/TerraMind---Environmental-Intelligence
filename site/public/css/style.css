@@ -141,3 +141,9 @@ body {
                 0 0 10px rgba(0, 194, 110, 0.2);
     outline: none;
 }
+
+/* Accessibility Keyboard Focus Rings */
+*:focus-visible {
+    outline: 2px solid var(--primary) !important;
+    outline-offset: 2px !important;
+}

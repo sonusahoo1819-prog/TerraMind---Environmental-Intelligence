@@ -62,7 +62,11 @@ def log_carbon_calculator():
     if not data:
         return jsonify({"error": "Invalid payload"}), 400
         
-    log_entry = database.add_carbon_log(user_id=1, log_data=data)
+    try:
+        log_entry = database.add_carbon_log(user_id=1, log_data=data)
+    except ValueError as e:
+        return jsonify({"error": str(e)}), 400
+        
     updated_user = database.get_user(user_id=1)
     
     return jsonify({
@@ -226,9 +230,16 @@ def redeem_marketplace_voucher():
         return jsonify({"error": "Item title and credit cost required"}), 400
         
     item_title = data['item_title']
-    cost = int(data['cost_credits'])
+    try:
+        cost = int(data['cost_credits'])
+    except (ValueError, TypeError):
+        return jsonify({"error": "Credit cost must be an integer"}), 400
     
-    res = database.add_transaction(user_id=1, item_title=item_title, cost_credits=cost)
+    try:
+        res = database.add_transaction(user_id=1, item_title=item_title, cost_credits=cost)
+    except ValueError as e:
+        return jsonify({"error": str(e)}), 400
+        
     if "error" in res:
         return jsonify(res), 400
         

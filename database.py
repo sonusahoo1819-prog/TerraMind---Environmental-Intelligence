@@ -150,11 +150,36 @@ def get_carbon_logs(user_id=1):
         return mock_db.carbon_logs
 
 def add_carbon_log(user_id, log_data):
-    # Calculate emissions values
+    if not isinstance(log_data, dict):
+        raise ValueError("Invalid payload format")
+        
     pt = log_data.get("public_transport", 0)
     re = log_data.get("renewable_energy", 0)
     diet = log_data.get("diet", "Veggie")
     mode = log_data.get("commuting_mode", "Electric")
+    
+    try:
+        pt = int(pt)
+    except (ValueError, TypeError):
+        raise ValueError("Public transport value must be an integer")
+        
+    if not (0 <= pt <= 100):
+        raise ValueError("Public transport percentage must be between 0 and 100")
+        
+    try:
+        re = int(re)
+    except (ValueError, TypeError):
+        raise ValueError("Renewable energy value must be an integer")
+        
+    if not (0 <= re <= 100):
+        raise ValueError("Renewable energy percentage must be between 0 and 100")
+        
+    diet_map = {"Omnivore": 1.8, "Flexi": 1.2, "Veggie": 0.6, "Vegan": 0.3}
+    if diet not in diet_map:
+        raise ValueError("Invalid diet choice. Must be one of: Omnivore, Flexi, Veggie, Vegan")
+        
+    if mode not in ["Electric", "Gas Car"]:
+        raise ValueError("Invalid commuting mode. Must be one of: Electric, Gas Car")
     
     # Simple emission formula:
     # transport: starts high, public transport and EV reduce it
@@ -348,6 +373,17 @@ def get_transactions(user_id=1):
         return mock_db.transactions
 
 def add_transaction(user_id, item_title, cost_credits):
+    if not item_title or not isinstance(item_title, str):
+        raise ValueError("Item title must be a non-empty string")
+        
+    try:
+        cost_credits = int(cost_credits)
+    except (ValueError, TypeError):
+        raise ValueError("Credit cost must be an integer")
+        
+    if cost_credits <= 0:
+        raise ValueError("Credit cost must be greater than zero")
+        
     user = get_user(user_id)
     if user["credits"] < cost_credits:
         return {"error": "Insufficient credits"}
